@@ -1055,6 +1055,7 @@ Antes de responder, hazme cualquier pregunta NECESARIA para que puedas darme la 
                 if (submitting) return;
                 if (!supabaseClient) { showToast('El servidor no está disponible. Tus respuestas no se han enviado.', 'error'); return; }
                 if (!studentName.trim() || !studentEmail.trim() || !groupComplete) { showToast("Escribe tu nombre completo, tu curso con la letra del grupo y tu correo del centro.", "error"); return; }
+                if (!/@(alu\.)?murciaeduca\.es$/i.test(studentEmail.trim())) { showToast("Tienes que usar tu correo del centro, el que termina en @alu.murciaeduca.es.", "error"); return; }
                 setSubmitting(true);
                 try {
                     const { data, error } = await supabaseClient.rpc('submit_audition', {
@@ -1062,7 +1063,7 @@ Antes de responder, hazme cualquier pregunta NECESARIA para que puedas darme la 
                         p_email: studentEmail.trim().toLowerCase(), p_answers: studentAnswers, p_hints: usedHints
                     });
                     if (error) {
-                        showToast(/already_submitted/.test(error.message) ? "Ya has enviado esta tarea con este correo. Pulsa «¿Ya la has hecho?» para ver tu resultado." : "No se ha podido guardar tu nota: " + error.message, "error");
+                        showToast(/already_submitted/.test(error.message) ? "Ya has enviado esta tarea con este correo. Pulsa «¿Ya la has hecho?» para ver tu resultado." : /invalid_email/.test(error.message) ? "Tienes que usar tu correo del centro, el que termina en @alu.murciaeduca.es." : "No se ha podido guardar tu nota: " + error.message, "error");
                         return;
                     }
                     const record = hydrateRecord(data, activeTask);
