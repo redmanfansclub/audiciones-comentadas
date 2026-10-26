@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiciones Comentadas | Afina el Oído — por Manuel Esteve (IES Infanta Elena)</title>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2222%22%20fill%3D%22%237A1F3D%22%2F%3E%3Cpath%20d%3D%22M20%2040%20H32%20L47%2027%20V69%20L32%2056%20H20%20Z%22%20fill%3D%22%23E8B04B%22%20stroke%3D%22%23E8B04B%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M58%2038%20A13%2013%200%200%201%2058%2058%22%20fill%3D%22none%22%20stroke%3D%22%23E8B04B%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M67%2029%20A24%2024%200%200%201%2067%2067%22%20fill%3D%22none%22%20stroke%3D%22%23E8B04B%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAACYVBMVEVMaXF9H0B5Hz16Hj15Hj19FUB4HjwAAAB6Hz16Hjx5Hjx6Hjx6Hzx4Hzx5Hjx9HD55HT15Hzx6Hz15Hj16Hjx6HjxVAFV6Hz17HTt6Hjx5Hzx5Hjx6Hjx6HTt5Hjx6HTt6HD15Hjx6Hj17Hjx5Hjx5Hz15IDp4Hj55HDh4Hz1/AAB5JTh5Hj16Hzx5Hz1/HDh6Hjx5Hz15Hzx5Hzx5Hzx5Hzx6Hjx5Hjx5Hjx4GkN5Hjx6Hjx6Hj16Hjx5Hjx7ITd5Hjx6Hz15Hjx6Hjx6Gzh5Hzx4Hjx6Hjx5Hzx5Hjx6Hjx4Hj15Hjx5Hj14Hj14Hj15Hjx5Hzx5Hj15HT57HTp6Hzx6Hjx6Hjx6Hj16Hz3osEueUELEf0Z7ID3nr0uBKT6qX0OFLT5+JD58IT3mrUrmrkvSkkjhp0qxZ0R7ID6MNz/mrkvYmknNjEfkqkrlq0qAJj3dokrXmUmQPECRPkDanUmCKj6LND+5ckWGLj98Ij7coUmeT0KyaUSSP0Dankq+eEWDKj7hpkq/ekXMi0jeo0nIh0eLNj+IMT7nr0rGg0eNOD+HMD/KiEe/e0ajVUJ/Jj3or0utY0SfUEKoWkPEgUePOUCWRUCXRkHgpUqsYEPCfkbTk0i3cEShUkHbn0mcTEGpXEK0a0SYR0DOjUidTELIhUfUlkiXRUF9JD24cUXVlkmZSEGyaUWPOkDWl0mUQkG1bETBfEagUUKTQEDOjkfSlEm2b0WZR0HKiUeELD6aSUHZnEmbSkGmWUPlrEuuY0PQkEjiqUq6dUXHhEavZES2bUW7dkbiqErDf0elWELL7bQSAAAAWXRSTlMAD/22NQsyAbPo48n8N8EUbubu6VuEA8Q8Ovux8V7ITCu++lXGoh8cGl8CDXj1zBLX7dTzkqupru8T20Ph+NYW96MuZglxEbqBuHV0lthFT9+kzz0je86g6uokvm0AAAAJcEhZcwAALiMAAC4jAXilP3YAAAkxSURBVHja7Z33XxRHGIcHrtOkI1UUgYRqxZbYeyzpybvmwKMKHwtYUGOPxoq9xq4pmphCElM0ppmevyoHQryZu72b212OnXn3+/PMHO/D7rvzvvPODCFRamFyYdbknJkZ6WPARBqTnjEzZXJWoT2ODKGy7VVLMsDkyrBV2bOHwvryBe4CEEQF+anlxlo/v8SdBEIpPmdepWHmj5xTDQKqek6uMea7QVjljNJrvWtUEQitl0tceuy314DwSnRqNj9uUhJIoPjSEdqe/sIMkETj52l4D0bYQCItmhWt/ckvglRKGBnd4586BiRT3uIKfvsrbSCh3A5e+2vHgpSq4fwalC0HSTX9VR77ixNAWqXNjWz/3HSQWOOLI4b9CSC10soiTH+Wg+SaHnZKVFkD0isxzNewwgYI5FYPDF4DFFqqZv8reTgA5KnEBbXPARIlhJwSumyARiHdwLOASIUhlrwyMAHwBC+hLQNUmsTa70zCBSDeznjAGkCmItoPrgR0oheNEvEBKAq0fwUg1IwAACkYAYwOWAAGlHq6ev4STgClg/Y7JuIEUO3AGAUEKnMAwGisABYNJIKTsAKIf1JLtgDQKrUfgBsvgCn99Z9T8QKY2ldTmgyI1VdAVYUZQF+GfBFmADY/gDcxA/D4iwEBteJw+0AAO95AYDAcyMINIItMxg2gjuTgBpBCxuEGMIF4cANIIwW4ARSQ53EDmE1w2w/x2AGABcACYAGwAFgALAAWAAvAMKjx9o6W1p14AfhalT6dwwqg40a//crjzuj6NW3eealBAgB325QBfR/Va7PrHX+X5vNbRQdwsnnQfmVVFN26rw50erxTaADeNfWKFgDt6/7vVb/LKy6At08oiiYAZwP7HW0UFUDDOkUjgINUx18bxARweKOiFcB7dM97PhEBbH5X0Qygmem6pUc8AB+uV7QD2MP2XbtdNACrjyg6AOwN6rzxoVAAmrYpih4AF1qCet/pFAjAqaOKPgCwJrj7gyZhAAxEP090WhMA72f1QQT2igJgMPrR8wQAXA9yosplMQBcbFOMAACbdrADNPeKAOBks2IMAOhZy47w7nbTA6CiH50AYN9Vdoh17SYHQEc/egFAZ6uBboDEPvrRDQC67zFj/HzMzADY6Ec/APBtYQZpbTIvgKDoxwAAcOgdZpTVpgUQHP0YAQB6mVnx3z6TAggR/RgCAFYzw5wwJYCQ0Y8xAOAtepj6+yYEEDr64QMQMf/f+Yge5wPzAVCJfngA8OT/7zNu4FOzAVCLfjgAPM3/h7PqO3qgb73mAqAa/UQGEJD/b/la/RcamZfgB1MBUI9+IgMIzP8fCbN6+gMTEpgIQLjoJzIAOv9/S/1nfqeH2mQaAGGjn8gA6Px/y031CSHtB6+YBUD46CcyAObtebyJM0/c3B0bAO27V4XV1xsVfQDY/H+Xasaj52e9EYEGAJ+vVYzUKo78/4F2vkfgXiwAdL+nDDWA4Py/6r+2o16nG4wewBllyAEE5/83HAKuFePbMQDwVQwAeL9jW7WqvQQ36cXCGAB4KwYA/M8ZO4+4rhZw0mnyY+YBcFoXADjHNHv0tsrf8yXV7BdZngCA20w7tQnhJnqpUB4A3ivM8sfHKg2pkGhDozQAoHEtnxf4k2p1SR4AbMZDLeVzkWq1RiIAcE3h8fAfU3nn32UC0EBn/z9RaXacihtkAsDMOrcAT93IdpkANNJpta08iaH3ZQIA23hCon1Uo3NSAThGNT2o0qqLx1OICQCo3EqbSqMPAht9JBeAazwOjsqK3JELwPs8Du4PHd9BswPorOfwgv9SmdF2qQAAFe7/xpMU6ZYLwHGOxP99asDDcgHYz+HhL1ADHpILADUV+iZ0m63UgJ/LBeAzjrx/DzXgbguA9QpYTlAiAA84PoO7Zf4MYp8IcU2Ff6LqKbzIg6EdMofDPo5w+FsrIWKlxLAlRR/KmxQ9xZUW/1HP4qC5AfyCfGGkoQ350hizONrBszh6FN/y+F1Zl8dPaSqQuCtPicw/yEtkvtRUJHUcZCmTu6WtTO6MNIWSbLOzKn9OUxfPl0L8Utlf1aL8D5VYl8oOS7H0es5i6V3oyuWPxb5c3lwbJvbHfsPEMGyZ2aEa4PQ0D8OWmchqOBCrTVP7h2XTFMR429yPqr/TQTuLr0DGjZP1YTZOfqSYdOMkGLd1tuUn9d+4ybhKkHDzdPNZ9V9o3GPmzdP+F3TPEG+fv2bu7fNDfoBCL3M8yfeA7AiNLQZsnhf4EBXveXqY+t3IjtG5zAyzH3AdpHSRiZfafNZRWqgOU7sh0GFqkWIjDQD2fcGMsaEDMB2o2NCqGPUCCHmk5sM77BAP2jEdqno4KCHV5cN0rO7mLnaAll5BDlbeY8jByhsUAx2AgEdrBwP8C3Afrn6wyTpeH/MFC1/sA9xXbPhwX7LyaDugvmbnjk/Qi5YOGHPR0jcNuK/aOt+I+7K1NV7ruj3rwkXryk3r0lXr2l3r4mULgAXAAmABsABYACwAFgALgDbFk+dxA5hNCnADKCAe3ADSyEzcACaQFNwARpM63ADqSBZuAItJIW4AmSQZNwA7icMNoJKQDNzTAEKWYAZg8wOowgzgBT8AO2YATj+A7Kl47Z+a7QdA8vECmNJnP1mAF0BqP4DyJKz2x5f3AyCLsAJY8sR+8izeQOCJHBNx2l/tGABA5uAE8Mag/SQXJ4Dc/wHgzIuNfmo/WYERwIwAAGQsPvuLAu0nK/EBGEUBcCVis3+siwJAnMjmw0lOwmgZLgCTWPtJZRom+z1xQQBwRQSZwfYTlxuP/fmuEADIwhex2J8wjYRU8hgc9uflEhVV4cmFh1aFG68DGEiNIIgJEh0kjEaMk93+6bNIWJU/J/kHoIxEUPF4me0fX0wiqjhBXvvT5hIOlUnrB8aVES7VSvotSBxBOOWQcj6Q7yDccqVKNyvOW1xBopFdssgoIZdEqWlSvQb5tSR6lUhTSO4pdBEtipskRaY0vnQa0Spnkfj2j3USPZoh+Jzg9RIX0amRAnvDnFHECOWWCllBMbE0lxil+SXuPME8X848BzFU5alT0kWxPn1K6jNkCJTtXGoz/dzAY3vBWUGGUHH2zKy6lAmedFPtuJyd7pmQUpeVaY+L1p7/ALqSeaTgDanyAAAAAElFTkSuQmCC">
+    <meta name="theme-color" content="#7A1F3D">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+        // Versión en castellano: el índigo de la versión inglesa pasa a granate, y el morado a dorado.
+        tailwind.config = { theme: { extend: { colors: {
+            indigo: { 50:'#FBF3F5', 100:'#F6E4E9', 200:'#EDC8D2', 300:'#DFA0B1', 400:'#C96D86', 500:'#A8445F', 600:'#8E2D48', 700:'#7A1F3D', 800:'#651A33', 900:'#54182D', 950:'#2F0815' },
+            purple: { 50:'#FDF8EC', 100:'#FAEFD0', 200:'#F4DC9D', 300:'#EDC76A', 400:'#E8B04B', 500:'#D49530', 600:'#B47624', 700:'#8F5A20', 800:'#74481F', 900:'#613C1D', 950:'#3A220F' }
+        } } } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        select { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1em; padding-right: 2rem !important; }
+        
+        body.dark { background-color: #0f172a; color: #e2e8f0; }
+        body.dark .bg-white { background-color: #1e293b !important; }
+        body.dark .bg-slate-50 { background-color: #334155 !important; }
+        body.dark .bg-slate-100 { background-color: #334155 !important; }
+        body.dark .bg-slate-50\/50 { background-color: #334155 !important; }
+        body.dark .bg-slate-50\/30 { background-color: #334155 !important; }
+        body.dark .bg-slate-50\/60 { background-color: #334155 !important; }
+        body.dark .text-slate-900 { color: #f1f5f9 !important; }
+        body.dark .text-slate-950 { color: #f8fafc !important; }
+        body.dark .text-slate-800 { color: #e2e8f0 !important; }
+        body.dark .text-slate-700 { color: #cbd5e1 !important; }
+        body.dark .text-slate-600 { color: #cbd5e1 !important; }
+        body.dark .text-slate-500 { color: #94a3b8 !important; }
+        body.dark .text-slate-400 { color: #94a3b8 !important; }
+        body.dark .border-slate-200 { border-color: #334155 !important; }
+        body.dark .border-slate-100 { border-color: #334155 !important; }
+        body.dark .border-slate-200\/50 { border-color: #334155 !important; }
+        body.dark .border-b { border-color: #334155 !important; }
+        body.dark input, body.dark textarea, body.dark select { background-color: #334155 !important; color: #f1f5f9 !important; border-color: #475569 !important; }
+        body.dark .bg-slate-900 { background-color: #020617 !important; }
+        body.dark .hover\:bg-slate-50\/30:hover { background-color: #334155 !important; }
+        body.dark .hover\:bg-slate-100:hover { background-color: #475569 !important; }
+
+        /* Protección anti-copia */
+        .proj-gap { display:inline-flex; align-items:baseline; gap:.35em; padding:0 .3em; border-bottom:3px solid currentColor; font-family: Arial, Helvetica, sans-serif; font-weight:700; letter-spacing:.06em; white-space:nowrap; }
+        .proj-num { font-size:.6em; font-weight:800; opacity:.65; letter-spacing:0; }
+        .anti-copy-zone {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="text-slate-900 selection:bg-indigo-100 selection:text-indigo-900 min-h-screen">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useMemo, useEffect } = React;
+
+        const DEFAULT_SUPABASE_PROJECT_ID = "bbdvflbykohleyctiinj";
+        const DEFAULT_SUPABASE_URL = `https://${DEFAULT_SUPABASE_PROJECT_ID}.supabase.co`;
+        const DEFAULT_SUPABASE_KEY = "sb_publishable_URQ87m7Tiq96RUHGtvX29Q_lYroaqM4";
+        const SUPABASE_DASHBOARD_URL = `https://supabase.com/dashboard/project/${DEFAULT_SUPABASE_PROJECT_ID}/editor`;
+
+        const decodeTaskData = (encoded) => { try { return JSON.parse(decodeURIComponent(atob(encoded))); } catch (e) { return null; } };
+        const getStoredAuditions = () => { try { return JSON.parse(localStorage.getItem('audiciones_es_tasks') || '[]'); } catch (e) { return []; } };
+        const saveStoredAuditions = (newList) => { try { localStorage.setItem('audiciones_es_tasks', JSON.stringify(newList)); } catch (e) {} };
+        const getStoredScores = () => { try { return JSON.parse(localStorage.getItem('audiciones_es_scores') || '[]'); } catch (e) { return []; } };
+        const saveStoredScores = (newList) => { try { localStorage.setItem('audiciones_es_scores', JSON.stringify(newList)); } catch (e) {} };
+
+        const normalizeSearch = (str) => {
+            if (!str) return '';
+            return String(str)
+                .toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[º°ª]/g, '')
+                .replace(/\s+/g, '')
+                .trim();
+        };
+
+        const getTaskCodeFromUrl = () => {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const code = params.get('task');
+                if (code) return code;
+                const hash = window.location.hash || '';
+                if (hash.startsWith('#task/')) return hash.replace('#task/', '');
+            } catch (e) {}
+            return null;
+        };
+
+        const buildStudentUrl = (code) => {
+            const base = `${window.location.origin}${window.location.pathname}`;
+            return `${base}?task=${encodeURIComponent(code)}`;
+        };
+
+        const saveStudentSubmission = (record) => {
+            try {
+                const list = getStoredScores();
+                const filtered = list.filter(r => !(r.student_email?.toLowerCase() === record.student_email?.toLowerCase() && r.audition_id === record.audition_id));
+                localStorage.setItem('audiciones_es_scores', JSON.stringify([record, ...filtered]));
+            } catch (e) {}
+        };
+
+        const extractYouTubeId = (url) => {
+            if (!url) return null;
+            const trimmed = String(url).trim();
+            if (!trimmed) return null;
+            if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed;
+            const regExp = /(?:https?:\/\/)?(?:[a-zA-Z0-9-]+\.)?(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?|shorts|live)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+            const match = trimmed.match(regExp);
+            return match ? match[1] : null;
+        };
+
+        const getFeedback = (score) => {
+            const num = Number(score);
+            if (num >= 9) return { title: "¡Sobresaliente!", text: "¡Trabajo excelente! Dominas el vocabulario musical de esta audición. Tu esfuerzo y tu atención a los detalles han dado fruto. ¡Sigue así!" };
+            if (num >= 7) return { title: "¡Buen trabajo!", text: "¡Bien hecho! Has conseguido un buen resultado y entiendes la mayor parte del contenido. Con un poco más de esfuerzo y atención puedes llegar a la excelencia. ¡Adelante!" };
+            if (num >= 5) return { title: "Aprobado", text: "Has aprobado, pero puedes hacerlo mucho mejor. Tu comprensión todavía es básica y necesitas trabajar más el vocabulario y la precisión. ¡No te conformes con el mínimo!" };
+            if (num >= 3) return { title: "Resultado insuficiente", text: "Este resultado no es suficiente. Has cometido demasiados errores y necesitas tomarte el aprendizaje más en serio. Espero una mejora clara en la próxima audición." };
+            return { title: "Resultado muy insuficiente", text: "Este resultado no es aceptable. Has demostrado muy poca comprensión del contenido. Espero mucho más esfuerzo, preparación y compromiso por tu parte." };
+        };
+
+        const formatScore = (n) => Number(n || 0).toFixed(1).replace('.', ',');
+
+        const standardStudentLevels = ['2º ESO', '3º ESO'];
+        const classSearchMatch = (studentClass, query) => {
+            const raw = String(studentClass || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[º°ª.]/g, '').replace(/\s+/g, '');
+            const q = String(query || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[º°ª.]/g, '').replace(/\s+/g, '');
+            if (!q) return false;
+            const match = raw.match(/^(\d+)(?:eso|curso|bachillerato|bach)?([a-z]*)/);
+            if (!match) return raw.includes(q);
+            const level = match[1];
+            const group = match[2] || '';
+            if (/^[1-3]$/.test(q)) return level === q;
+            if (/^[a-z]$/.test(q)) return group.includes(q);
+            const parsed = q.match(/^(\d+)(?:eso|curso|bachillerato|bach)?([a-z]*)$/);
+            if (parsed) {
+                if (level !== parsed[1]) return false;
+                const requestedGroups = parsed[2] || '';
+                if (!requestedGroups) return true;
+                return requestedGroups.split('').some(letter => group.includes(letter));
+            }
+            return raw.includes(q);
+        };
+
+        const getQRBase64 = async (text) => {
+            if (!text) return null;
+            try {
+                const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=5&data=${encodeURIComponent(text)}`;
+                const response = await fetch(url);
+                if (!response.ok) return null;
+                const blob = await response.blob();
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.onerror = () => resolve(null);
+                    reader.readAsDataURL(blob);
+                });
+            } catch (e) {
+                console.error("QR generation error:", e);
+                return null;
+            }
+        };
+
+        const playAudioFeedback = (type, score = 10) => {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+                const now = ctx.currentTime;
+                const numScore = Number(score);
+                if (type === 'success' && numScore >= 8) {
+                    const notes = [{ f: 523.25, t: 0.0, d: 0.15 }, { f: 659.25, t: 0.12, d: 0.15 }, { f: 783.99, t: 0.24, d: 0.15 }, { f: 1046.50, t: 0.36, d: 0.30 }, { f: 783.99, t: 0.60, d: 0.15 }, { f: 1046.50, t: 0.72, d: 0.18 }, { f: 1318.51, t: 0.90, d: 0.22 }, { f: 1567.98, t: 1.12, d: 0.50 }];
+                    notes.forEach((note) => {
+                        const osc = ctx.createOscillator(); const gain = ctx.createGain();
+                        osc.type = 'triangle'; osc.frequency.setValueAtTime(note.f, now + note.t);
+                        gain.gain.setValueAtTime(0.18, now + note.t);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + note.t + note.d);
+                        osc.connect(gain); gain.connect(ctx.destination);
+                        osc.start(now + note.t); osc.stop(now + note.t + note.d);
+                    });
+                } else if (type === 'success' && numScore >= 7) {
+                    const arpeggio = [{ f: 392.00, t: 0.00, d: 0.22 }, { f: 493.88, t: 0.17, d: 0.22 }, { f: 587.33, t: 0.34, d: 0.22 }, { f: 659.25, t: 0.51, d: 0.25 }, { f: 587.33, t: 0.74, d: 0.22 }, { f: 493.88, t: 0.91, d: 0.22 }, { f: 587.33, t: 1.08, d: 0.22 }, { f: 783.99, t: 1.25, d: 0.50 }];
+                    arpeggio.forEach((note) => {
+                        const osc = ctx.createOscillator(); const gain = ctx.createGain();
+                        osc.type = 'sine'; osc.frequency.setValueAtTime(note.f, now + note.t);
+                        gain.gain.setValueAtTime(0.15, now + note.t);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + note.t + note.d);
+                        osc.connect(gain); gain.connect(ctx.destination);
+                        osc.start(now + note.t); osc.stop(now + note.t + note.d);
+                    });
+                } else if (type === 'success' && numScore >= 5) {
+                    const gentle = [{f:523.25,t:0,d:0.18},{f:659.25,t:0.2,d:0.2},{f:587.33,t:0.43,d:0.22},{f:659.25,t:0.68,d:0.38}];
+                    gentle.forEach(note => { const osc=ctx.createOscillator(); const gain=ctx.createGain(); osc.type='sine'; osc.frequency.setValueAtTime(note.f,now+note.t); gain.gain.setValueAtTime(0.10,now+note.t); gain.gain.exponentialRampToValueAtTime(0.001,now+note.t+note.d); osc.connect(gain); gain.connect(ctx.destination); osc.start(now+note.t); osc.stop(now+note.t+note.d); });
+                } else {
+                    const suspenseSequence = [{ f: 246.94, t: 0.00, d: 0.30 }, { f: 233.08, t: 0.28, d: 0.30 }, { f: 220.00, t: 0.56, d: 0.45 }, { f: 110.00, t: 1.05, d: 0.35 }, { f: 233.08, t: 1.45, d: 0.35 }, { f: 220.00, t: 1.78, d: 0.35 }, { f: 207.65, t: 2.11, d: 0.60 }];
+                    suspenseSequence.forEach((note) => {
+                        const osc = ctx.createOscillator(); const gain = ctx.createGain();
+                        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(note.f, now + note.t);
+                        gain.gain.setValueAtTime(0.14, now + note.t);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + note.t + note.d);
+                        osc.connect(gain); gain.connect(ctx.destination);
+                        osc.start(now + note.t); osc.stop(now + note.t + note.d);
+                    });
+                }
+            } catch(e) {}
+        };
+
+        const Icons = {
+            Sparkles: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>,
+            Speaker: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z" /></svg>,
+            Stop: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" /></svg>,
+            Download: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>,
+            External: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>,
+            LogOut: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>,
+            Trash: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>,
+            Copy: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>,
+            Check: () => <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>,
+            Eye: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>,
+            Search: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>,
+            Link: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>,
+            Lightbulb: () => <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3a7 7 0 00-7 7c0 2.38 1.19 4.485 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-1.26c1.81-1.255 3-3.36 3-5.74a7 7 0 00-7-7z" /></svg>,
+            Refresh: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>,
+            Camera: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><circle cx="12" cy="13" r="3" /></svg>,
+            Database: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>,
+            Cloud: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>,
+            Moon: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>,
+            Monitor: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
+            Key: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>,
+            Printer: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>,
+            Sun: () => <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+        };
+
+        const MUSIC_THEMES = {
+            classical: { id:'classical', label:'Clásica y orquestal', genres:'Música clásica, barroca, romántica, ópera y música sinfónica', icon:'♬', colors:{ primary:'#192747', accent:'#B69A5B', paper:'#F3EBDD', soft:'#E8E0D0', text:'#192747' }, pdf:{ primary:[25,39,71], accent:[182,154,91], paper:[243,235,221], soft:[232,224,208] }, font:'Georgia, "Times New Roman", serif' },
+            jazz: { id:'jazz', label:'Jazz y blues', genres:'Jazz, blues, swing, bossa nova, soul, Motown, funk, gospel y R&B', icon:'♫', colors:{ primary:'#542D42', accent:'#D49A48', paper:'#FBF3E8', soft:'#F1E1D2', text:'#542D42' }, pdf:{ primary:[84,45,66], accent:[212,154,72], paper:[251,243,232], soft:[241,225,210] }, font:'Trebuchet MS, Arial, sans-serif' },
+            rock: { id:'rock', label:'Rock y metal', genres:'Rock and roll, rock clásico, hard rock, heavy metal, punk, grunge, rock alternativo e indie rock', icon:'⚡', colors:{ primary:'#181818', accent:'#C52D35', paper:'#F3F3F3', soft:'#E4E4E4', text:'#181818' }, pdf:{ primary:[24,24,24], accent:[197,45,53], paper:[243,243,243], soft:[228,228,228] }, font:'Trebuchet MS, Arial, sans-serif' },
+            pop: { id:'pop', label:'Pop y electrónica', genres:'Pop, disco, música electrónica, techno, house, hip-hop, rap, trap, reggae, reguetón y K-pop', icon:'♫', colors:{ primary:'#30205E', accent:'#42D6D0', paper:'#F5F2FF', soft:'#E8E1FF', text:'#30205E' }, pdf:{ primary:[48,32,94], accent:[66,214,208], paper:[245,242,255], soft:[232,225,255] }, font:'Arial, Helvetica, sans-serif' },
+            folk: { id:'folk', label:'Folk y músicas del mundo', genres:'Flamenco, country, música celta, folk, música latina, música tradicional española y músicas del mundo', icon:'♧', colors:{ primary:'#435640', accent:'#B47A50', paper:'#F0E4CE', soft:'#E5D5B9', text:'#435640' }, pdf:{ primary:[67,86,64], accent:[180,122,80], paper:[240,228,206], soft:[229,213,185] }, font:'Palatino Linotype, Palatino, Georgia, serif' },
+            film: { id:'film', label:'Cine, televisión y videojuegos', genres:'Bandas sonoras de cine y televisión, música de videojuegos, musicales, cine de animación y temas cinematográficos', icon:'✦', colors:{ primary:'#222B48', accent:'#9A83C6', paper:'#F0EDF7', soft:'#E0D9ED', text:'#222B48' }, pdf:{ primary:[34,43,72], accent:[154,131,198], paper:[240,237,247], soft:[224,217,237] }, font:'Arial, Helvetica, sans-serif' }
+        };
+        const getMusicTheme = (value) => {
+            if (value && MUSIC_THEMES[value]) return MUSIC_THEMES[value];
+            const legacy = String(value || '').toLowerCase();
+            if (legacy.includes('jazz') || legacy.includes('blues') || legacy.includes('soul')) return MUSIC_THEMES.jazz;
+            if (legacy.includes('rock') || legacy.includes('metal')) return MUSIC_THEMES.rock;
+            if (legacy.includes('folk') || legacy.includes('flamenco') || legacy.includes('country')) return MUSIC_THEMES.folk;
+            if (legacy.includes('film') || legacy.includes('soundtrack') || legacy.includes('cinema')) return MUSIC_THEMES.film;
+            if (legacy.includes('pop') || legacy.includes('electronic') || legacy.includes('reggae') || legacy.includes('rap')) return MUSIC_THEMES.pop;
+            return MUSIC_THEMES.classical;
+        };
+
+
+        // ---------- VERSIÓN EN CASTELLANO ----------
+        // Las audiciones creadas desde esta versión llevan este prefijo en su código.
+        // Así el historial, las calificaciones y los borrados masivos solo afectan a las audiciones en castellano.
+        const SHARE_PREFIX = 'aud-es-';
+        const LOGO_PNG = 'data:image/png;base64,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';
+
+        const GEM_URL = "https://gemini.google.com/gem/1zBKk_Rb5olSOsjr7VaIlTBlvhd4a91S_?usp=sharing";
+        const GEM_INSTRUCTIONS = `Objetivos (a gran escala):
+
+Generar comentarios artísticos y educativos sobre audiciones musicales de YouTube EN ESPAÑOL (texto atractivo, claro y didáctico para alumnado de 3º de ESO, válido también para 2º y 4º, con conectores variados).
+Fomentar el aprendizaje de vocabulario técnico musical mediante una estructura narrativa amena, artística y original, evitando la monotonía entre diferentes generaciones.
+Garantizar el uso de ESTRICTAMENTE 10 palabras clave del vocabulario musical en MAYÚSCULAS SOSTENIDAS, distribuidas con precisión matemática y cumpliendo reglas estrictas de formato.
+
+Consulta/Tarea (alcance):
+
+Actúa como Ingeniero de Prompts, Crítico y Escritor Musical, y Profesor de Música.
+Tu tarea es crear un comentario musical detallado en español de 4 párrafos (el cuarto más largo SIEMPRE) a partir de un enlace de YouTube que te proporcione el usuario.
+Selecciona y aplica exactamente 10 palabras del vocabulario adjunto en MAYÚSCULAS sostenidas, respetando la distribución exigida por párrafo y por nivel de dificultad.
+
+Exclusiones:
+
+ALUCINACIONES PROHIBIDAS: Si no puedes ver el vídeo o identificar instrumentos/estructura con total seguridad, NO inventes nada. Detente y pregunta al usuario.
+PROTOCOLO SI NO PUEDES VER EL VÍDEO (OBLIGATORIO): Antes de escribir nada, comprueba con sinceridad si puedes ver y escuchar el vídeo de YouTube. Si no puedes (muchas IA no pueden), dilo claramente en una frase y NO inventes instrumentos, estructura ni detalles sonoros. En su lugar, hazme estas preguntas en un único mensaje, numeradas y breves, para que pueda contestarlas de una vez:
+1. Título, artista o grupo y, si lo sé, año o álbum.
+2. Estilo musical (o fusión de estilos).
+3. Agrupación: qué instrumentos y voces suenan.
+4. Cómo empieza: qué instrumentos o voces aparecen en la introducción y qué carácter tiene.
+5. Desarrollo: estructura (estrofas, estribillos, puente…) y qué ocurre en medio (solos, interludios, cambios de tempo, de intensidad o de instrumentos).
+6. Cómo termina: coda, final que se apaga poco a poco, final brusco, repetición del estribillo…
+7. Carácter: tempo (lento, moderado, rápido), intensidad, modo mayor o menor si lo sé, y qué sentimiento transmite.
+8. Letra: de qué trata (si tiene letra).
+9. Opcional: alguna anécdota o dato curioso que quiera incluir.
+Si alguna respuesta es incompleta o dudosa, pregúntame solo lo imprescindible antes de redactar. Puedes buscar en internet información de contexto (historia del estilo, biografía del artista), pero lo que suena en la grabación sale SOLO de mis respuestas. Si sí puedes ver el vídeo pero dudas de algún instrumento o sección, pregúntame solo por eso. Cuando tengas la información, redacta el comentario cumpliendo todas las reglas.
+EXCLUSIÓN DE MAYÚSCULAS ADICIONALES: Queda TERMINANTEMENTE PROHIBIDO escribir en mayúsculas sostenidas cualquier otra palabra que no sean las 10 seleccionadas del vocabulario. No uses mayúsculas sostenidas para enfatizar, ni para otros términos. Ni siquiera puedes usar acrónimos en mayúsculas (ej. escribe "rtve" o evítalo).
+NÚMEROS ROMANOS: Los siglos y cualquier número romano se escriben SIEMPRE en minúscula o con letra (ej. "siglo xx" o "siglo veinte", nunca "siglo XX").
+NOMBRES DE GRUPOS Y ARTISTAS: Escríbelos solo con la inicial en mayúscula, aunque oficialmente vayan en mayúsculas (ej. "Abba", "Bts", "Ac/dc", "Rem").
+PALABRAS CON GUION: Nunca elijas como palabra clave una palabra con guion o símbolos (ej. lo-fi, k-pop). Puedes usarlas en minúscula dentro del texto.
+TILDES: Las palabras en mayúsculas conservan siempre su tilde (ej. MELODÍA, CANCIÓN, ARMONÍA).
+EXCLUSIÓN DE REPETICIÓN CREATIVA: Prohibido empezar los análisis siempre con las mismas frases. Puedes repetir pero varía cada poco. Evita fórmulas calcadas en cada generación.
+
+Entradas y condiciones:
+
+Contexto/Rol: Escritor Crítico Musical experto y Profesor empático y creativo.
+Datos disponibles: [Enlace de YouTube a analizar - a solicitar al usuario].
+Restricciones de Nivel y Estilo: Español claro, educativo, ameno y atractivo para alumnado de 3º de ESO (válido para 2º y 4º), comprensible pero con un toque literario, artístico y original. Es una guía de audición, no un texto robótico. (Si aparecen palabras musicales técnicas que no están en el vocabulario, explícalas brevemente).
+Restricción de Repetición Didáctica: Algunas de las 10 palabras elegidas deben repetirse en minúscula a lo largo del comentario para reforzar el aprendizaje.
+REGLA DE PALABRAS COMPUESTAS: Si seleccionas una palabra clave de dos o más términos (ej. "guitarra eléctrica", "sección rítmica"), debes poner en mayúsculas SOLO UNA de las palabras (ej. "GUITARRA eléctrica" o "guitarra ELÉCTRICA") para que el sistema de validación externo la cuente como una sola palabra.
+REGLA DE VARIEDAD: Alterna las frases de inicio del análisis (ej. "El viaje musical arranca con...", "La interpretación emerge desde...", "La pieza comienza con...", "La audición se abre con...") y asegúrate de cambiar el modismo final del párrafo 3 en cada nueva generación.
+
+Vocabulario Musical de Referencia (NO ALTERAR, USAR EXACTAMENTE ESTE): 
+(ENTIDADES MUSICALES): guitarra (fácil), guitarra eléctrica (fácil), guitarra acústica (fácil), guitarra flamenca (medio), bajo (fácil), bajo eléctrico (fácil), contrabajo (medio), piano (fácil), teclado (medio), sintetizador (avanzado), violín (fácil), viola (medio), violonchelo (medio), flauta (fácil), oboe (medio), corno inglés (avanzado), clarinete (fácil), saxofón (fácil), fagot (avanzado), trompeta (fácil), corneta (medio), trombón (fácil), trompa (medio), tuba (fácil), armónica (fácil), acordeón (fácil), batería (fácil), percusión (fácil), timbales (medio), glockenspiel (avanzado), marimba (medio), vibráfono (fácil), xilófono (fácil), celesta (avanzado), clavecín (avanzado), órgano (fácil), órgano Hammond (avanzado), tiorba (avanzado), laúd (avanzado), gaita (medio), bandoneón (avanzado), cajón (fácil), arpa (medio), ukelele (fácil), banjo (medio), yembe (medio), congas (fácil), bongos (fácil), triángulo (fácil), castañuelas (medio), pandereta (fácil), platillos (medio), bombo (fácil), sampler (medio), sitar (avanzado), voz (fácil), cantante (fácil), vocalista (medio), rapero (fácil), soprano (medio), mezzosoprano (avanzado), tenor (medio), barítono (medio), virtuoso (avanzado), luthier (avanzado), guitarrista (fácil), bajista (medio), pianista (fácil), violinista (fácil), violista (avanzado), violonchelista (medio), flautista (fácil), saxofonista (medio), trompetista (medio), trombonista (medio), clarinetista (medio), oboísta (avanzado), percusionista (medio), tubista (avanzado), arpista (medio), acordeonista (medio), vibrafonista (medio), organista (medio), gaitero (avanzado), músico (fácil), artista (fácil), intérprete (medio), compositor (fácil), director (medio), productor (medio), dj (fácil), acompañante (medio), ingeniero de sonido (avanzado), líder de banda (medio), instrumental (fácil), vocal (fácil), banda (fácil), orquesta (fácil), orquesta sinfónica (medio), orquesta filarmónica (avanzado), orquesta de cámara (medio), banda de jazz (fácil), banda de viento (medio), charanga (medio), grupo flamenco (medio), grupo de folk (medio), coro (medio), conjunto (medio), grupo (fácil), cuarteto (fácil), trío (fácil), dúo (fácil), cuarteto de cuerdas (medio), compañía de ópera (medio), cuerdas (fácil), metales (medio), maderas (medio), sección rítmica (medio), sección melódica (medio).
+(ELEMENTOS MUSICALES): melodía (fácil), ritmo (medio), armonía (medio), tempo (fácil), pulso (medio), síncopa (avanzado), groove (medio), contratiempo (medio), acorde (fácil), progresión (medio), escala (fácil), mayor (fácil), menor (fácil), consonancia (avanzado), textura (medio), monofónica (avanzado), polifónica (avanzado), homofónica (avanzado), melodía acompañada (medio), contrapunto (avanzado), registro (medio), tesitura (avanzado), pentatónica (medio), tonal (medio), atonal (avanzado), modulación (avanzado), cadenza (avanzado).
+(ESTRUCTURA MUSICAL): sección (medio), introducción (fácil), estrofa (fácil), preestribillo (medio), estribillo (fácil), hook (medio), riff (medio), solo (fácil), clímax (medio), puente (fácil), coda (medio), tema (medio), movimiento (medio), forma binaria (avanzado), forma ternaria (avanzado), rondó (medio), forma aaba (avanzado), desarrollo (avanzado), exposición (medio), interludio (medio), acto (medio), final (fácil).
+(PARÁMETROS DE INTERPRETACIÓN): forte (fácil), piano (fácil), crescendo (medio), diminuendo (medio), moderato (medio), presto (avanzado), andante (medio), adagio (medio), accelerando (medio), ritardando (medio), rubato (avanzado), legato (avanzado), staccato (avanzado), vibrato (avanzado), glissando (avanzado), trémolo (avanzado), acento (medio), tenuto (avanzado), articulación (avanzado), improvisación (medio), improvisado (medio), matiz (avanzado).
+(GÉNERO Y ESTILO): pop (fácil), rock (fácil), jazz (fácil), música clásica (fácil), hip hop (fácil), rap (fácil), flamenco (fácil), dance (fácil), trap (fácil), ambient (medio), rhythm and blues (avanzado), lo-fi (avanzado), blues (medio), soul (medio), funk (medio), reguetón (fácil), k-pop (fácil), salsa (fácil), samba (medio), tango (medio), bachata (medio), reggae (avanzado), country (medio), música electrónica (medio), indie (medio), balada (fácil), mainstream (avanzado), bebop (avanzado), grunge (medio), heavy metal (medio), britpop (medio), cumbia (avanzado), merengue (medio), música celta (medio), dubstep (medio), góspel (avanzado), vanguardia (avanzado), banda sonora original (medio).
+(DESCRIPTORES / ADJETIVOS): fuerte (fácil), suave (fácil), alegre (fácil), triste (fácil), enérgico (medio), tranquilo (fácil), armónico (medio), equilibrado (medio), complejo (medio), áspero (medio), cálido (medio), brillante (medio), atmosférico (avanzado), sincopado (avanzado), denso (avanzado), claro (fácil), ligero (medio), oscuro (medio), percusivo (avanzado), icónico (avanzado), innovador (avanzado), predecible (avanzado), minimalista (avanzado), tenso (medio).
+(ACCIONES): tocar (fácil), cantar (fácil), interpretar (medio), escuchar (fácil), oír (fácil), grabar (medio), mezclar (medio), afinar (avanzado), acompañar (medio), componer (fácil), arreglar (medio), improvisar (medio), transmitir (medio), crear (fácil), repetir (fácil), desarrollar (medio), contrastar (medio), destacar (medio), intensificar (medio), atenuar (medio), compuesta de (medio), formada por (fácil), integrada por (medio), expresar (fácil), construir tensión (medio), liberar tensión (medio), fusionar (medio), modular (avanzado).
+(CONTEXTO MUSICAL): concierto (fácil), festival (medio), actuación (avanzado), bolo (medio), performance (avanzado), gira (medio), ensayo (medio), escenario (fácil), interpretación (medio), público (fácil), álbum (fácil), lanzamiento (medio), colaboración (medio).
+
+Instrucciones para la respuesta:
+
+Tipo de salida: Texto continuo con formato de artículo/comentario en ESPAÑOL.
+Selección de las 10 palabras: Debes escoger más o menos 4 (Fácil), 4 (Medio) y 2 (Avanzado) o proporciones parecidas de dificultad.
+Estructura y Distribución de Mayúsculas (CUMPLIMIENTO OBLIGATORIO):
+PÁRRAFO 1 (Contexto): Nombre de la canción, artista, origen, IMPORTANTE estilo musical (búscalo en internet si dudas) y anécdota. OBLIGATORIO Nombra la agrupación y los instrumentos (si son menos de 9, si es una orquesta solo las secciones y los destacados). DEBE CONTENER EXACTAMENTE 3 PALABRAS DEL VOCABULARIO EN MAYÚSCULAS. Ni una más, ni una menos.
+PÁRRAFO 2 (Análisis, guía): Inicio (introducción), estructura (estrofas/estribillos), intermedios (solos/interludios) y final (coda). Recuerda usar entradas variadas. DEBE CONTENER EXACTAMENTE 5 PALABRAS DEL VOCABULARIO EN MAYÚSCULAS. Ni una más ni menos.
+PÁRRAFO 3 (Sentimiento): Letra, modo, sentimiento, tempo. Termina obligatoriamente con un modismo o frase hecha en español relacionada con la música/emoción (asegúrate de que sea diferente al de audiciones anteriores). DEBE CONTENER EXACTAMENTE 2 PALABRAS DEL VOCABULARIO EN MAYÚSCULAS (sobre todo verbos descriptivos, adjetivos de sentimiento o términos musicales como tempo, dinámica, consonancia, disonancia, modo mayor, menor…).
+PÁRRAFO 4 (Sobre el Estilo Musical), OBLIGADO: Resumen del estilo/fusión dividido en 4 partes (DESCRIPCIÓN: características e instrumentos o agrupaciones, ORIGEN: estilos y artistas que le han influido, EVOLUCIÓN: desarrollo y grandes leyendas del estilo, ACTUALIDAD: el estilo hoy y algún/os referentes destacados). Es el párrafo más largo. RESTRICCIÓN GRAMATICAL: Usa la expresión "no solo... sino también" de forma natural. OBLIGADO NOMBRA siempre músicos o grupos destacados del estilo, anterior, similar y posterior/es. RESTRICCIÓN DE FORMATO: 0 PALABRAS EN MAYÚSCULAS SOSTENIDAS en este párrafo (absolutamente ninguna, tampoco siglos ni nombres de grupos).
+Longitud / detalle: 4 párrafos de extensión media-amplia, el párrafo cuatro casi el doble que cada uno de los otros tres. 
+
+Criterios de calidad (si aplica, debes cumplir):
+
+Exactitud musical: Instrumentos y estructura reales del enlace aportado. (Pregunta o investiga en internet si no puedes ver el vídeo… Pero sobre todo, PREGUNTA).
+Trazabilidad del vocabulario: Total de 10 palabras en MAYÚSCULAS SOSTENIDAS exactamente (3+5+2+0). Adecuada distribución de palabras Fácil, Medio y Avanzado, pero uso de más palabras del vocabulario en minúscula relacionadas con la audición.
+Cumplimiento de regla de palabras compuestas (ej. "GUITARRA eléctrica" en vez de "GUITARRA ELÉCTRICA").
+Cumplimiento de regla de NO mayúsculas sostenidas adicionales (nada extra en mayúsculas en todo el texto).
+
+Checklist previo a entregar (verifica internamente):
+[Formato de 4 párrafos] · [Texto atractivo para 3º de ESO] · [ESTRICTAMENTE 10 palabras en mayúsculas: 3 en P1, 5 en P2, 2 en P3, 0 en P4] · [Regla de palabras compuestas cumplida: 1 sola palabra en mayúscula por término compuesto] · [Ninguna palabra clave con guion] · [Palabras clave con su tilde] · [Ninguna otra palabra extra en mayúsculas sostenidas en todo el texto: ni siglos, ni números romanos, ni siglas, ni nombres de grupos] · [Uso de "no solo... sino también" en P4] · [Entrada de P2 variada] · [Modismo en P3 variado].
+
+Antes de responder, preséntate como el experto y haz la siguiente pregunta al usuario: "¡Hola! Estoy listo para analizar la obra musical que desees. Por favor, facilítame el enlace de YouTube y dime algo sobre la obra y el artista para comenzar a redactar el comentario en español."
+
+Antes de responder, hazme cualquier pregunta NECESARIA para que puedas darme la respuesta óptima (por ejemplo, pedirme el enlace de YouTube) y RECUERDA… el comentario debe ser estrictamente EN ESPAÑOL y ¡no te pases! que no sea demasiado complejo: piensa en alumnado de 3º de ESO y ponte en el lugar de un cuentacuentos ameno y cautivador. ¡Esto es IMPORTANTE!`;
+
+        const copyLongText = async (text) => {
+            try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+                document.body.appendChild(ta); ta.select();
+                const ok = document.execCommand('copy');
+                document.body.removeChild(ta);
+                return ok;
+            } catch (e) { return false; }
+        };
+
+        // Barajado determinista: la ficha impresa y el modo proyección muestran siempre las mismas opciones en el mismo orden.
+        const seededShuffle = (arr, seedText) => {
+            let h = 2166136261;
+            for (const ch of String(seedText)) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); }
+            if (h === 0) h = 1;
+            const rand = () => { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; return ((h >>> 0) % 100000) / 100000; };
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+            return a;
+        };
+
+        const GAP_PATTERN = /[A-ZÁÉÍÓÚÑ]{2,}/g;
+        const NBSP = '\u00A0';
+        const wordKey = (w) => String(w || '').toUpperCase().replace(/[ÁÀ]/g, 'A').replace(/[ÉÈ]/g, 'E').replace(/[ÍÌ]/g, 'I').replace(/[ÓÒ]/g, 'O').replace(/[ÚÙÜ]/g, 'U');
+        const getAuditionWords = (audition) => (String(audition?.comment || '').match(GAP_PATTERN) || []);
+
+        // Misma regla que la app y que Supabase: huecos 1,5,7,9 primera letra; 2,4,6,10 dos últimas; 3 y 8 opciones.
+        const buildGapClue = (words, idx, seed) => {
+            const word = words[idx] || '';
+            const len = word.length;
+            if ([0, 4, 6, 8].includes(idx)) return { type: 'text', parts: [word.charAt(0), ...Array(Math.max(0, len - 1)).fill('_')] };
+            if ([1, 3, 5, 9].includes(idx)) return { type: 'text', parts: [...Array(Math.max(0, len - 2)).fill('_'), ...word.slice(-2).split('')] };
+            if ([2, 7].includes(idx)) {
+                const seen = new Set([wordKey(word)]);
+                const others = [];
+                seededShuffle(words.filter((w, i) => i !== idx), `${seed}-d-${idx}`).forEach(w => {
+                    const k = wordKey(w);
+                    if (!seen.has(k)) { seen.add(k); others.push(w); }
+                });
+                return { type: 'options', options: seededShuffle([word, ...others.slice(0, 2)], `${seed}-o-${idx}`) };
+            }
+            return { type: 'text', parts: Array(len).fill('_') };
+        };
+
+        const tokenizeAudition = (audition) => {
+            const words = getAuditionWords(audition);
+            const seed = audition?.share_link || audition?.id || audition?.title || 'audicion';
+            let g = 0;
+            return String(audition?.comment || '').split('\n').map(par => {
+                const tokens = []; let last = 0; let m;
+                const re = /[A-ZÁÉÍÓÚÑ]{2,}/g;
+                while ((m = re.exec(par)) !== null) {
+                    if (m.index > last) tokens.push({ type: 'text', content: par.slice(last, m.index) });
+                    const idx = g++;
+                    tokens.push({ type: 'gap', index: idx, word: m[0], clue: buildGapClue(words, idx, seed) });
+                    last = re.lastIndex;
+                }
+                if (last < par.length) tokens.push({ type: 'text', content: par.slice(last) });
+                return tokens;
+            });
+        };
+
+        // Texto del hueco para el papel. Espacios duros para que un hueco no se parta entre dos líneas.
+        const gapToPrint = (tok) => {
+            const n = `(${tok.index + 1})`;
+            if (tok.clue.type === 'options') return `${n}${NBSP}[${NBSP}${tok.clue.options.join(`${NBSP}/${NBSP}`)}${NBSP}]`;
+            return `${n}${NBSP}${tok.clue.parts.join(NBSP)}`;
+        };
+
+        const PT_TO_MM = 0.3528;
+        // Busca el mayor tamaño de letra con el que el texto cabe en el alto disponible.
+        const fitTextBlock = (doc, text, width, maxHeight, maxSize, minSize, spacing = 1.45) => {
+            for (let size = maxSize; size >= minSize; size -= 0.25) {
+                doc.setFontSize(size);
+                const lines = doc.splitTextToSize(text, width);
+                const lh = size * PT_TO_MM * spacing;
+                if (lines.length * lh <= maxHeight) return { size, lines, lh, fits: true };
+            }
+            doc.setFontSize(minSize);
+            return { size: minSize, lines: doc.splitTextToSize(text, width), lh: minSize * PT_TO_MM * spacing, fits: false };
+        };
+
+        const openPdf = (doc, fileName) => {
+            const blob = doc.output('blob');
+            const url = window.URL.createObjectURL(blob);
+            const win = window.open(url, '_blank');
+            if (!win) doc.save(fileName);
+        };
+
+        const safeFileName = (t) => String(t || 'audicion').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 40) || 'audicion';
+
+        const hydrateRecord = (r, task) => ({ ...r, taskDetails: { ...task, comment: r.full_comment || task.comment, uppercase_words: (r.details?.words || []).map(w => w.original).filter(Boolean) } });
+
+        const App = () => {
+            const initialTaskCode = getTaskCodeFromUrl();
+            const recoveryHashPresent = typeof window !== 'undefined' && /type=recovery|access_token=/.test(window.location.hash || '');
+            const [view, setView] = useState(initialTaskCode ? 'student-test' : (recoveryHashPresent ? 'reset-password' : 'auth'));
+            const [session, setSession] = useState(null);
+            const [loading, setLoading] = useState(true);
+            const [submitting, setSubmitting] = useState(false);
+            const [dashboardTab, setDashboardTab] = useState('create');
+            const [darkMode, setDarkMode] = useState(() => localStorage.getItem('audition_dark_mode') === 'true');
+            const [showAwayWarning, setShowAwayWarning] = useState(false);
+
+            const [supabaseUrl] = useState(DEFAULT_SUPABASE_URL);
+            const [supabaseKey] = useState(DEFAULT_SUPABASE_KEY);
+            const [supabaseClient, setSupabaseClient] = useState(null);
+
+            const [authEmail, setAuthEmail] = useState('');
+            const [authPassword, setAuthPassword] = useState('');
+            const [recoveryPassword, setRecoveryPassword] = useState('');
+            const [recoveryPasswordConfirm, setRecoveryPasswordConfirm] = useState('');
+            const [authMode, setAuthMode] = useState('signin');
+            const [toast, setToast] = useState(null);
+            const [confirmModal, setConfirmModal] = useState(null);
+            const [deleteAllModal, setDeleteAllModal] = useState(null);
+            const [deleteAllConfirmText, setDeleteAllConfirmText] = useState('');
+            const [createdTaskModal, setCreatedTaskModal] = useState(null);
+            const [lookupModal, setLookupModal] = useState(false);
+            const [lookupEmail, setLookupEmail] = useState('');
+
+            const [title, setTitle] = useState('');
+            const [artist, setArtist] = useState('');
+            const [style, setStyle] = useState('classical');
+            const [youtubeUrl, setYoutubeUrl] = useState('');
+            const [commentText, setCommentText] = useState('');
+            const [taskHints, setTaskHints] = useState(Array(10).fill(''));
+
+            const [auditionsList, setAuditionsList] = useState([]);
+            const [scoresList, setScoresList] = useState([]);
+            const [searchTerm, setSearchTerm] = useState('');
+            const [searchTermHistory, setSearchTermHistory] = useState('');
+            const [copiedId, setCopiedId] = useState(null);
+            const [selectedScoreDetails, setSelectedScoreDetails] = useState(null);
+
+            const [activeTask, setActiveTask] = useState(null);
+            const [studentName, setStudentName] = useState('');
+            const [studentLevel, setStudentLevel] = useState('2º ESO');
+            const [studentCustomLevel, setStudentCustomLevel] = useState('');
+            const [studentLetter, setStudentLetter] = useState('');
+            const studentClass = useMemo(() => {
+                const level = studentLevel === '__custom__' ? studentCustomLevel.trim() : studentLevel;
+                const letter = studentLetter.trim().toUpperCase();
+                return [level, letter].filter(Boolean).join(' ');
+            }, [studentLevel, studentCustomLevel, studentLetter]);
+            const groupComplete = !!studentLetter.trim() && (studentLevel !== '__custom__' || !!studentCustomLevel.trim());
+            const [studentEmail, setStudentEmail] = useState('');
+            const [studentAnswers, setStudentAnswers] = useState({});
+            const [usedHints, setUsedHints] = useState({});
+            const [finalScoreRecord, setFinalScoreRecord] = useState(null);
+            const [examSubmitted, setExamSubmitted] = useState(false);
+            const [alreadySubmittedWarning, setAlreadySubmittedWarning] = useState(false);
+
+            const [mcOptions, setMcOptions] = useState({});
+            const [speakingIndex, setSpeakingIndex] = useState(null);
+            const [projection, setProjection] = useState(null);
+            const [projectionScale, setProjectionScale] = useState(1);
+            const [projectionVideoSmall, setProjectionVideoSmall] = useState(false);
+            const [revealedGaps, setRevealedGaps] = useState({});
+            const [focusMode, setFocusMode] = useState(false);
+            const [focusPar, setFocusPar] = useState(0);
+
+            // SISTEMA ANTI-COPIA Y AVISO DE PESTAÑA
+            useEffect(() => {
+                if (view !== 'student-test' || examSubmitted) return;
+
+                const handleCopy = (e) => {
+                    e.preventDefault();
+                    showToast("⚠️ El texto está protegido. Busca las respuestas en tus apuntes o en un diccionario de música.", "error");
+                };
+                
+                const handleContextMenu = (e) => {
+                    e.preventDefault();
+                    showToast("⚠️ El botón derecho está desactivado. El texto está protegido.", "error");
+                };
+
+                const handleVisibilityChange = () => {
+                    if (document.hidden && view === 'student-test' && !examSubmitted && activeTask) {
+                        setShowAwayWarning(true);
+                    }
+                };
+
+                document.addEventListener('copy', handleCopy);
+                document.addEventListener('contextmenu', handleContextMenu);
+                document.addEventListener("visibilitychange", handleVisibilityChange);
+
+                return () => {
+                    document.removeEventListener('copy', handleCopy);
+                    document.removeEventListener('contextmenu', handleContextMenu);
+                    document.removeEventListener("visibilitychange", handleVisibilityChange);
+                };
+            }, [view, examSubmitted, activeTask]);
+
+            useEffect(() => {
+                if (darkMode) document.body.classList.add('dark');
+                else document.body.classList.remove('dark');
+                localStorage.setItem('audition_dark_mode', darkMode);
+            }, [darkMode]);
+
+            const showToast = (message, type = 'info') => {
+                setToast({ message, type });
+                setTimeout(() => setToast(null), 5000);
+            };
+
+            const copyToClipboard = (text) => {
+                const tempInput = document.createElement("input");
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+            };
+
+            useEffect(() => {
+                if (supabaseUrl && supabaseKey && window.supabase) {
+                    try {
+                        const client = window.supabase.createClient(supabaseUrl, supabaseKey);
+                        setSupabaseClient(client);
+                    } catch (e) {
+                        console.error("Supabase init error:", e);
+                        setSupabaseClient(null);
+                    }
+                }
+            }, [supabaseUrl, supabaseKey]);
+
+            const toggleSpeech = (text, index) => {
+                if ('speechSynthesis' in window) {
+                    if (speakingIndex === index) { window.speechSynthesis.cancel(); setSpeakingIndex(null); }
+                    else {
+                        window.speechSynthesis.cancel();
+                        const cleanText = text.replace(/[A-ZÁÉÍÓÚÑ]{2,}/g, (m) => m.toLowerCase());
+                        const utterance = new SpeechSynthesisUtterance(cleanText);
+                        utterance.lang = 'es-ES'; utterance.rate = 0.95;
+                        const voices = window.speechSynthesis.getVoices();
+                        const spanishVoice = voices.find(v => v.lang === 'es-ES') || voices.find(v => v.lang.startsWith('es'));
+                        if (spanishVoice) utterance.voice = spanishVoice;
+                        utterance.onend = () => setSpeakingIndex(null);
+                        utterance.onerror = () => setSpeakingIndex(null);
+                        setSpeakingIndex(index);
+                        window.speechSynthesis.speak(utterance);
+                    }
+                } else showToast("La lectura en voz alta no está disponible en este navegador.", "error");
+            };
+
+            const loadStudentTask = async (code) => {
+                if (!code) return;
+                setLoading(true);
+                let taskData = null;
+                try {
+                    const c = window.supabase.createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false } });
+                    const { data, error } = await c.rpc('get_audition_public', { p_code: code });
+                    if (error) console.error(error); else taskData = data;
+                } catch (e) { console.error(e); }
+                if (taskData) { setActiveTask(taskData); setExamSubmitted(false); setFinalScoreRecord(null); setView('student-test'); }
+                else { showToast("No se encuentra la tarea. Pide a tu profesor o profesora un enlace nuevo.", "error"); setActiveTask(null); setView('student-test'); }
+                setLoading(false);
+            };
+
+            useEffect(() => {
+                setLoading(false);
+            }, []);
+
+            useEffect(() => {
+                const code = getTaskCodeFromUrl();
+                if (code) {
+                    if (window.location.hash && window.location.hash.startsWith('#task/')) {
+                        try { window.history.replaceState(null, '', buildStudentUrl(code)); } catch (e) {}
+                    }
+                    loadStudentTask(code);
+                }
+            }, []);
+
+            useEffect(() => {
+                const code = getTaskCodeFromUrl();
+                if (!code && session && view === 'auth') setView('dashboard');
+            }, [session, view]);
+
+            useEffect(() => {
+                if (activeTask && activeTask.mc_options && view === 'student-test' && !examSubmitted) setMcOptions(activeTask.mc_options);
+            }, [activeTask, view, examSubmitted]);
+
+            useEffect(() => {
+                if (!supabaseClient) return;
+                supabaseClient.auth.getSession().then(({ data }) => { if (data?.session) setSession(data.session); });
+                const { data: sub } = supabaseClient.auth.onAuthStateChange((event, sess) => {
+                    setSession(sess);
+                    if (event === 'PASSWORD_RECOVERY') {
+                        setRecoveryPassword('');
+                        setRecoveryPasswordConfirm('');
+                        setView('reset-password');
+                    }
+                });
+                return () => sub.subscription.unsubscribe();
+            }, [supabaseClient]);
+
+            const handleTeacherAuth = async (e) => {
+                e.preventDefault();
+                const normalizedEmail = authEmail.trim().toLowerCase();
+                if (!supabaseClient) {
+                    showToast("No hay conexión con la nube. Recarga la página e inténtalo de nuevo.", "error");
+                    return;
+                }
+                if (!normalizedEmail || !authPassword) {
+                    showToast("Escribe tu correo y tu contraseña.", "error");
+                    return;
+                }
+                if (authMode === 'signup' && authPassword.length < 10) {
+                    showToast("Elige una contraseña de al menos 10 caracteres.", "error");
+                    return;
+                }
+                setLoading(true);
+                try {
+                    if (authMode === 'signup') {
+                        const { data, error } = await supabaseClient.auth.signUp({
+                            email: normalizedEmail,
+                            password: authPassword
+                        });
+                        if (error) throw error;
+                        if (data.session) {
+                            setSession(data.session);
+                            setView('dashboard');
+                            showToast("Cuenta creada correctamente.", "success");
+                        } else {
+                            showToast("Cuenta creada. Revisa tu correo para confirmarla y después entra.", "success");
+                            setAuthMode('signin');
+                        }
+                    } else {
+                        const { data, error } = await supabaseClient.auth.signInWithPassword({
+                            email: normalizedEmail,
+                            password: authPassword
+                        });
+                        if (error) throw error;
+                        setSession(data.session);
+                        setView('dashboard');
+                        showToast("Has entrado correctamente.", "success");
+                    }
+                } catch (error) {
+                    console.error("Teacher authentication error:", error);
+                    showToast(error?.message || "No se ha podido entrar. Revisa tu correo y tu contraseña.", "error");
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            const handlePasswordRecoveryRequest = async () => {
+                const normalizedEmail = authEmail.trim().toLowerCase();
+                if (!supabaseClient) { showToast('No hay conexión con la nube. Recarga la página e inténtalo de nuevo.', 'error'); return; }
+                if (!normalizedEmail) { showToast('Escribe primero tu correo.', 'error'); return; }
+                setLoading(true);
+                try {
+                    const redirectTo = `${window.location.origin}${window.location.pathname}`;
+                    const { error } = await supabaseClient.auth.resetPasswordForEmail(normalizedEmail, { redirectTo });
+                    if (error) throw error;
+                    showToast('Te hemos enviado un correo para recuperar la contraseña. Abre el más reciente para continuar.', 'success');
+                } catch (error) {
+                    showToast(error?.message || 'No se ha podido enviar el correo de recuperación.', 'error');
+                } finally { setLoading(false); }
+            };
+
+            const handleSetNewPassword = async (e) => {
+                e.preventDefault();
+                if (!supabaseClient) { showToast('No hay conexión con la nube. Recarga la página e inténtalo de nuevo.', 'error'); return; }
+                if (!session) { showToast('No se ha cargado la sesión de recuperación. Pide un correo de recuperación nuevo.', 'error'); setView('auth'); return; }
+                if (recoveryPassword.length < 10) { showToast('Elige una contraseña de al menos 10 caracteres.', 'error'); return; }
+                if (recoveryPassword !== recoveryPasswordConfirm) { showToast('Las contraseñas no coinciden.', 'error'); return; }
+                setLoading(true);
+                try {
+                    const { error } = await supabaseClient.auth.updateUser({ password: recoveryPassword });
+                    if (error) throw error;
+                    setRecoveryPassword(''); setRecoveryPasswordConfirm(''); setAuthPassword('');
+                    try { window.history.replaceState(null, '', `${window.location.origin}${window.location.pathname}`); } catch (e) {}
+                    setView('dashboard');
+                    showToast('Contraseña cambiada. Ya puedes salir y entrar con la nueva.', 'success');
+                } catch (error) {
+                    showToast(error?.message || 'No se ha podido cambiar la contraseña.', 'error');
+                } finally { setLoading(false); }
+            };
+
+            const handleLogout = async () => {
+                try { await supabaseClient.auth.signOut(); } catch (e) {}
+                setSession(null); setView('auth');
+                showToast("Has salido de tu cuenta.", "info");
+            };
+
+
+            const videoId = useMemo(() => extractYouTubeId(youtubeUrl), [youtubeUrl]);
+            const uppercaseWords = useMemo(() => commentText.match(/[A-ZÁÉÍÓÚÑ]{2,}/g) || [], [commentText]);
+            // Avisos: cosas que la app contaría mal como huecos.
+            const commentWarnings = useMemo(() => {
+                const w = [];
+                const roman = (commentText.match(/\b[IVXLCDM]{2,}\b/g) || []);
+                if (roman.length) w.push(`Parece que hay números romanos en mayúscula (${[...new Set(roman)].join(', ')}). Escríbelos en minúscula: «siglo xx».`);
+                const withU = (commentText.match(/[A-ZÁÉÍÓÚÑ]*Ü[A-ZÁÉÍÓÚÑÜ]*/g) || []).filter(x => x.length > 1);
+                if (withU.length) w.push(`Las palabras con Ü no funcionan como hueco (${[...new Set(withU)].join(', ')}). Escríbelas en minúscula.`);
+                const hyph = (commentText.match(/[A-ZÁÉÍÓÚÑ]+[-&][A-ZÁÉÍÓÚÑ]+/g) || []);
+                if (hyph.length) w.push(`Las palabras con guion o símbolos cuentan mal (${[...new Set(hyph)].join(', ')}). Pon en mayúscula solo una parte o elige otra palabra.`);
+                return w;
+            }, [commentText]);
+            const activeMusicTheme = getMusicTheme(activeTask?.style || 'classical');
+
+            const handleHintChange = (idx, value) => {
+                const newHints = [...taskHints]; newHints[idx] = value; setTaskHints(newHints);
+            };
+
+            const handlePublishTask = async () => {
+                if (uppercaseWords.length !== 10) { showToast("El comentario debe tener exactamente 10 palabras en MAYÚSCULAS.", "error"); return; }
+                if (!videoId) { showToast("Pon un enlace válido de YouTube.", "error"); return; }
+                const teacherEmail = session?.user?.email?.toLowerCase().trim();
+                if (!teacherEmail) { showToast("Entra en tu cuenta antes de publicar.", "error"); setView('auth'); return; }
+                if (!supabaseClient) { showToast("No hay conexión con Supabase. La tarea no se ha publicado.", "error"); return; }
+                setLoading(true);
+                const taskId = SHARE_PREFIX + crypto.randomUUID().replace(/-/g, '').slice(0, 16);
+                const taskPayload = {
+                    teacher_email: teacherEmail,
+                    title: title || 'Audición sin título',
+                    artist: artist || 'Artista desconocido',
+                    style: style,
+                    youtube_url: youtubeUrl,
+                    comment: commentText,
+                    uppercase_words: uppercaseWords,
+                    hints: taskHints.slice(0, 10),
+                    share_link: taskId,
+                    is_exam_mode: false,
+                    created_at: new Date().toISOString()
+                };
+                try {
+                    let insertError = null;
+                    const firstTry = await supabaseClient.from('auditions').insert([taskPayload]);
+                    insertError = firstTry.error;
+                    if (insertError && /hints/i.test(insertError.message || '')) {
+                        const { hints, ...payloadNoHints } = taskPayload;
+                        const retry = await supabaseClient.from('auditions').insert([payloadNoHints]);
+                        insertError = retry.error;
+                    }
+                    if (insertError) {
+                        console.error("Supabase insert error:", insertError);
+                        showToast("No se ha podido guardar la audición en la nube: " + (insertError.message || "error desconocido"), "error");
+                        setLoading(false);
+                        return;
+                    }
+                } catch (e) {
+                    console.error("Supabase publish exception:", e);
+                    showToast("No se ha podido guardar la audición. No se ha creado ningún enlace para el alumnado.", "error");
+                    setLoading(false);
+                    return;
+                }
+                taskPayload.id = taskId;
+                const currentList = getStoredAuditions();
+                const updatedList = [taskPayload, ...currentList];
+                saveStoredAuditions(updatedList);
+                setAuditionsList(updatedList.filter(a => (a.teacher_email || a.teacher_id)?.toLowerCase() === teacherEmail));
+                const fullTaskUrl = buildStudentUrl(taskId);
+                setCreatedTaskModal({ title: taskPayload.title, fullUrl: fullTaskUrl, taskPayload: taskPayload });
+                setTitle(''); setArtist(''); setStyle('classical'); setYoutubeUrl(''); setCommentText(''); setTaskHints(Array(10).fill(''));
+                showToast("Audición guardada en la nube.", "success");
+                setLoading(false);
+            };
+
+            const fetchHistoryAndScores = async () => {
+                if (!session?.user?.email) return;
+                const teacherEmail = session.user.email.toLowerCase().trim();
+                const localAuds = getStoredAuditions().filter(a => (a.teacher_email || a.teacher_id)?.toLowerCase() === teacherEmail && String(a.share_link || '').startsWith(SHARE_PREFIX));
+                setAuditionsList(localAuds);
+                const localScores = getStoredScores().filter(s => (s.teacher_email || s.taskDetails?.teacher_email)?.toLowerCase() === teacherEmail && String(s.audition_id || '').startsWith(SHARE_PREFIX));
+                setScoresList(localScores);
+                if (supabaseClient) {
+                    try {
+                        const { data: cloudAuds, error: audErr } = await supabaseClient.from('auditions').select('*').eq('teacher_email', teacherEmail).like('share_link', SHARE_PREFIX + '%').order('created_at', { ascending: false });
+                        if (cloudAuds && !audErr) setAuditionsList(cloudAuds);
+                        const { data: cloudScores, error: scErr } = await supabaseClient.from('student_submissions').select('*').eq('teacher_email', teacherEmail).like('audition_id', SHARE_PREFIX + '%').order('created_at', { ascending: false });
+                        if (cloudScores && !scErr) setScoresList(cloudScores);
+                    } catch (e) { console.error("Fetch Supabase Cloud error:", e); }
+                }
+            };
+
+            useEffect(() => { if (view === 'dashboard') fetchHistoryAndScores(); }, [view, dashboardTab, session, supabaseClient]);
+
+            const handleCopyLink = (shareLink, id) => {
+                copyToClipboard(buildStudentUrl(shareLink));
+                setCopiedId(id); showToast("¡Enlace copiado!", "success");
+                setTimeout(() => setCopiedId(null), 2000);
+            };
+
+            const handleDeleteAudition = async (id, shareLink) => {
+                setConfirmModal({
+                    title: "Eliminar audición",
+                    message: "¿Seguro que quieres eliminar esta audición? También se borrará de la nube.",
+                    onConfirm: async () => {
+                        setConfirmModal(null);
+                        const updated = auditionsList.filter(a => a.id !== id && a.share_link !== shareLink);
+                        saveStoredAuditions(updated); setAuditionsList(updated);
+                        if (supabaseClient) {
+                            try {
+                                if (shareLink) await supabaseClient.from('auditions').delete().eq('share_link', shareLink);
+                                else await supabaseClient.from('auditions').delete().eq('id', id);
+                            } catch (e) { console.error("Delete error:", e); }
+                        }
+                        showToast("Audición eliminada.", "info");
+                    }
+                });
+            };
+
+            const handleDeleteScore = async (id) => {
+                setConfirmModal({
+                    title: "Eliminar resultado",
+                    message: "¿Seguro que quieres eliminar este resultado? También se borrará de la nube.",
+                    onConfirm: async () => {
+                        setConfirmModal(null);
+                        const updated = scoresList.filter(s => s.id !== id);
+                        saveStoredScores(updated); setScoresList(updated);
+                        if (supabaseClient) {
+                            try { await supabaseClient.from('student_submissions').delete().eq('id', id); } catch (e) { console.error(e); }
+                        }
+                        showToast("Resultado eliminado.", "info");
+                    }
+                });
+            };
+
+            const handleDeleteAllTasks = () => {
+                setDeleteAllConfirmText('');
+                setDeleteAllModal({
+                    title: "BORRAR TODAS LAS AUDICIONES",
+                    message: "Se borrarán para siempre TODAS tus audiciones en castellano, de este navegador y de Supabase. No se puede deshacer. Las audiciones de la versión en inglés no se tocan.",
+                    danger: true,
+                    onConfirm: async () => {
+                        setDeleteAllModal(null);
+                        saveStoredAuditions([]);
+                        setAuditionsList([]);
+                        const teacherEmail = session?.user?.email?.toLowerCase().trim();
+                        if (supabaseClient && teacherEmail) {
+                            try { await supabaseClient.from('auditions').delete().eq('teacher_email', teacherEmail).like('share_link', SHARE_PREFIX + '%'); } catch (e) { console.error(e); }
+                        }
+                        showToast("Todas las audiciones borradas.", "info");
+                    }
+                });
+            };
+
+            const handleDeleteAllScores = () => {
+                setDeleteAllConfirmText('');
+                setDeleteAllModal({
+                    title: "BORRAR TODOS LOS RESULTADOS",
+                    message: "Se borrarán para siempre TODOS los resultados del alumnado de tus audiciones en castellano, de este navegador y de Supabase. No se puede deshacer. Úsalo al final del curso.",
+                    danger: true,
+                    onConfirm: async () => {
+                        setDeleteAllModal(null);
+                        saveStoredScores([]);
+                        setScoresList([]);
+                        const teacherEmail = session?.user?.email?.toLowerCase().trim();
+                        if (supabaseClient && teacherEmail) {
+                            try { await supabaseClient.from('student_submissions').delete().eq('teacher_email', teacherEmail).like('audition_id', SHARE_PREFIX + '%'); } catch (e) { console.error(e); }
+                        }
+                        showToast("Todos los resultados borrados.", "info");
+                    }
+                });
+            };
+
+            const handleStudentLookup = async (e) => {
+                e.preventDefault(); if (!lookupEmail.trim()) return;
+                setLoading(true);
+                let matched = null;
+                try {
+                    const { data } = await supabaseClient.rpc('lookup_submission', { p_code: activeTask?.share_link, p_email: lookupEmail.trim().toLowerCase() });
+                    if (data) matched = hydrateRecord(data, activeTask);
+                } catch (err) { console.error(err); }
+                if (matched) {
+                    setFinalScoreRecord(matched); setExamSubmitted(true); setView('results'); setLookupModal(false);
+                    showToast("¡Resultado recuperado!", "success");
+                } else showToast("No hay ningún envío con este correo en esta tarea.", "error");
+                setLoading(false);
+            };
+
+
+            const filteredScores = useMemo(() => {
+                return scoresList.filter(s => {
+                    const qRaw = String(searchTerm || '').trim();
+                    const q = normalizeSearch(qRaw);
+                    if (!q) return true;
+
+                    // A lone 1, 2 or 3 prioritises the course; a lone 4 is a score search.
+                    if (/^[1-3]$/.test(q)) return classSearchMatch(s.student_class, q);
+                    if (q === '4') return String(s.score ?? '').includes(q);
+                    // A lone group letter searches that group across all course levels.
+                    if (/^[a-d]$/.test(q)) return classSearchMatch(s.student_class, q);
+                    // Explicit course/group queries such as 2A, 2 ESO A, 4ESO, 4curso or 4ABC.
+                    if (/^\d+(?:eso|curso|bachillerato|bach)?[a-z]*$/.test(q)) {
+                        return classSearchMatch(s.student_class, q);
+                    }
+
+                    const fields = [
+                        normalizeSearch(s.student_name),
+                        normalizeSearch(s.student_email),
+                        normalizeSearch(s.student_class),
+                        normalizeSearch(s.auditions?.title),
+                        normalizeSearch(s.auditions?.artist),
+                        String(s.score),
+                        formatScore(s.score)
+                    ];
+                    return fields.some(f => f.includes(q));
+                });
+            }, [scoresList, searchTerm]);
+
+            const filteredAuditions = useMemo(() => {
+                return auditionsList.filter(a => {
+                    const q = normalizeSearch(searchTermHistory);
+                    if (!q) return true;
+                    const fields = [
+                        normalizeSearch(a.title),
+                        normalizeSearch(a.artist),
+                        normalizeSearch(a.share_link)
+                    ];
+                    return fields.some(f => f.includes(q));
+                });
+            }, [auditionsList, searchTermHistory]);
+
+            const stats = useMemo(() => {
+                if (filteredScores.length === 0) return null;
+                const avg = filteredScores.reduce((acc, s) => acc + Number(s.score || 0), 0) / filteredScores.length;
+                const best = filteredScores.reduce((acc, s) => Number(s.score) > Number(acc.score) ? s : acc, filteredScores[0]);
+                return { avg: avg.toFixed(2).replace('.', ','), count: filteredScores.length, bestName: best.student_name, bestScore: formatScore(best.score) };
+            }, [filteredScores]);
+
+            const parsedParagraphs = useMemo(() => {
+                if (!activeTask?.comment) return [];
+                let gapCounter = 0;
+                const paragraphs = activeTask.comment.split('\n');
+                return paragraphs.map((paragraphText) => {
+                    if (!paragraphText.trim()) return [];
+                    const tokens = []; const regex = /([A-ZÁÉÍÓÚÑ]{2,})/g;
+                    let lastIdx = 0; let match;
+                    while ((match = regex.exec(paragraphText)) !== null) {
+                        if (match.index > lastIdx) tokens.push({ type: 'text', content: paragraphText.slice(lastIdx, match.index) });
+                        tokens.push({ type: 'gap', word: match[0], gapIndex: gapCounter++ });
+                        lastIdx = regex.lastIndex;
+                    }
+                    if (lastIdx < paragraphText.length) tokens.push({ type: 'text', content: paragraphText.slice(lastIdx) });
+                    return tokens;
+                });
+            }, [activeTask]);
+
+            const handleStudentAnswerChange = (idx, value) => { setStudentAnswers(prev => ({ ...prev, [idx]: value })); };
+
+            const checkIfAlreadySubmitted = async (email) => {
+                if (!email.trim() || !activeTask) return false;
+                const taskUniqueId = activeTask.share_link || activeTask.id;
+                const cleanEmail = email.toLowerCase().trim();
+                if (supabaseClient) {
+                    try {
+                        const { data } = await supabaseClient.from('student_submissions').select('id').eq('student_email', cleanEmail).eq('audition_id', taskUniqueId).limit(1);
+                        if (data && data.length > 0) return true;
+                    } catch (e) {}
+                }
+                const local = getStoredScores();
+                return local.some(s => s.student_email?.toLowerCase() === cleanEmail && s.audition_id === taskUniqueId);
+            };
+
+            const handleEvaluation = async () => {
+                if (submitting) return;
+                if (!supabaseClient) { showToast('El servidor no está disponible. Tus respuestas no se han enviado.', 'error'); return; }
+                if (!studentName.trim() || !studentEmail.trim() || !groupComplete) { showToast("Escribe tu nombre completo, tu curso con la letra del grupo y tu correo del centro.", "error"); return; }
+                setSubmitting(true);
+                try {
+                    const { data, error } = await supabaseClient.rpc('submit_audition', {
+                        p_code: activeTask.share_link, p_name: studentName.trim(), p_class: studentClass,
+                        p_email: studentEmail.trim().toLowerCase(), p_answers: studentAnswers, p_hints: usedHints
+                    });
+                    if (error) {
+                        showToast(/already_submitted/.test(error.message) ? "Ya has enviado esta tarea con este correo. Pulsa «¿Ya la has hecho?» para ver tu resultado." : "No se ha podido guardar tu nota: " + error.message, "error");
+                        return;
+                    }
+                    const record = hydrateRecord(data, activeTask);
+                    const finalGrade = Number(record.score);
+                    setFinalScoreRecord(record); setExamSubmitted(true); setView('results');
+                    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                    if (finalGrade >= 5) {
+                        playAudioFeedback('success', finalGrade);
+                        if (finalGrade >= 8 && window.confetti) confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+                    } else playAudioFeedback('error', finalGrade);
+                } finally { setSubmitting(false); }
+            };
+
+
+            // ---------- PDF: FICHA PARA EL ALUMNADO (PÁGINA 1) + SOLUCIONES (PÁGINA APARTE) ----------
+            const GRANATE = [122, 31, 61];
+            const DORADO = [214, 160, 64];
+            const TEXTO = [51, 65, 85];
+
+            const drawFrame = (doc) => {
+                doc.setDrawColor(...GRANATE); doc.setLineWidth(1.1); doc.rect(8, 8, 194, 281);
+                doc.setDrawColor(...DORADO); doc.setLineWidth(0.4); doc.rect(10.5, 10.5, 189, 276);
+                // pequeños adornos dorados en las esquinas
+                doc.setFillColor(...DORADO);
+                [[10.5, 10.5], [199.5, 10.5], [10.5, 286.5], [199.5, 286.5]].forEach(([x, y]) => doc.rect(x - 1.2, y - 1.2, 2.4, 2.4, 'F'));
+            };
+
+            const drawBrand = (doc, rightLabel) => {
+                try { doc.addImage(LOGO_PNG, 'PNG', 18, 14.5, 9, 9); } catch (e) {}
+                doc.setFont("Helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(...GRANATE);
+                doc.text("Audiciones Comentadas", 30, 19.6);
+                const w = doc.getTextWidth("Audiciones Comentadas");
+                doc.setFont("Helvetica", "normal"); doc.setTextColor(...DORADO);
+                doc.text("| Afina el Oído", 30 + w + 1.8, 19.6);
+                if (rightLabel) {
+                    doc.setFont("Helvetica", "bold"); doc.setFontSize(8); doc.setTextColor(...GRANATE);
+                    doc.text(rightLabel, 192, 19.6, { align: 'right' });
+                }
+                doc.setDrawColor(...DORADO); doc.setLineWidth(0.5); doc.line(18, 26, 192, 26);
+            };
+
+            const drawTitleBlock = (doc, audition, y) => {
+                doc.setFont("Helvetica", "bold"); doc.setTextColor(15, 23, 42);
+                let ts = 15; doc.setFontSize(ts);
+                const t = String(audition.title || '').toUpperCase();
+                while (ts > 9 && doc.getTextWidth(t) > 170) { ts -= 0.5; doc.setFontSize(ts); }
+                doc.text(t, 105, y, { align: 'center' });
+                doc.setFont("Helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(71, 85, 105);
+                doc.text(String(audition.artist || ''), 105, y + 6, { align: 'center', maxWidth: 170 });
+            };
+
+            const drawQrBlock = async (doc, url, y) => {
+                const label = "ESCUCHA LA AUDICIÓN";
+                try {
+                    const qrDataUri = await getQRBase64(url);
+                    if (qrDataUri) {
+                        doc.addImage(qrDataUri, 'PNG', 20, y, 25, 25);
+                        doc.setFont("Helvetica", "bold"); doc.setFontSize(8); doc.setTextColor(...GRANATE);
+                        doc.text(label, 49, y + 8);
+                        doc.setFont("Helvetica", "normal"); doc.setFontSize(7); doc.setTextColor(100, 116, 139);
+                        doc.text("Escanea el código QR con el móvil para abrir el vídeo en YouTube.", 49, y + 13);
+                        doc.setTextColor(...GRANATE);
+                        doc.textWithLink(url, 49, y + 18, { url });
+                        return;
+                    }
+                } catch (e) { console.error("QR error:", e); }
+                doc.setFont("Helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(...GRANATE);
+                doc.text(label, 105, y + 8, { align: 'center' });
+                doc.setFont("Helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(100, 116, 139);
+                doc.textWithLink(url, 105, y + 14, { align: 'center', url });
+            };
+
+            const drawStudentSheet = async (doc, audition) => {
+                drawFrame(doc);
+                drawBrand(doc, '');
+                drawTitleBlock(doc, audition, 34);
+
+                // Cabecera: nombre, grupo y nota
+                doc.setFillColor(251, 243, 245); doc.setDrawColor(...GRANATE); doc.setLineWidth(0.35);
+                doc.roundedRect(20, 45, 170, 11, 2, 2, 'FD');
+                doc.setFont("Helvetica", "bold"); doc.setFontSize(7.5); doc.setTextColor(...GRANATE);
+                doc.text("NOMBRE Y APELLIDOS:", 24, 52);
+                doc.text("GRUPO:", 122, 52);
+                doc.text("NOTA:", 150, 52);
+                doc.setDrawColor(148, 163, 184); doc.setLineWidth(0.3);
+                doc.line(56, 52.5, 119, 52.5);
+                doc.line(133, 52.5, 147, 52.5);
+                doc.line(160, 52.5, 174, 52.5);
+                doc.setFont("Helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(15, 23, 42);
+                doc.text("/ 10", 176, 52.5);
+
+                doc.setFont("Helvetica", "italic"); doc.setFontSize(8); doc.setTextColor(71, 85, 105);
+                doc.text("Escucha la audición y completa los huecos. En los huecos con opciones, rodea la palabra correcta.", 105, 62, { align: 'center' });
+
+                const paragraphs = tokenizeAudition(audition).map(tokens => tokens.map(t => t.type === 'gap' ? gapToPrint(t) : t.content).join(''));
+                const fullText = paragraphs.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+
+                const hints = (Array.isArray(audition.hints) ? audition.hints : [])
+                    .map((h, i) => ({ n: i + 1, text: String(h || '').trim() }))
+                    .filter(h => h.text);
+                doc.setFont("Helvetica", "normal"); doc.setFontSize(8.5);
+                const hintLines = hints.map(h => doc.splitTextToSize(`Hueco ${h.n}: ${h.text}`, 158));
+                const hintLh = 8.5 * PT_TO_MM * 1.35;
+                const hintsHeight = hints.length ? 12 + hintLines.reduce((acc, l) => acc + l.length * hintLh + 1.2, 0) : 0;
+
+                const textTop = 68;
+                const bottomLimit = audition.youtube_url ? 252 : 282;
+                const textBottom = bottomLimit - (hints.length ? hintsHeight + 4 : 0);
+                doc.setFont("Helvetica", "normal");
+                const fit = fitTextBlock(doc, fullText, 170, textBottom - textTop, 11, 7.5);
+                doc.setFontSize(fit.size); doc.setTextColor(...TEXTO);
+
+                let y = textTop + fit.size * PT_TO_MM;
+                let limit = fit.fits ? textBottom : 280;
+                fit.lines.forEach(line => {
+                    if (y > limit) { doc.addPage(); drawFrame(doc); y = 22; limit = 280; doc.setFont("Helvetica", "normal"); doc.setFontSize(fit.size); doc.setTextColor(...TEXTO); }
+                    doc.text(line, 20, y);
+                    y += fit.lh;
+                });
+
+                let hintsY = textBottom + 4;
+                let qrY = 256;
+                if (!fit.fits) {
+                    const needed = (hints.length ? hintsHeight + 4 : 0) + (audition.youtube_url ? 31 : 0);
+                    if (y + needed > 284) { doc.addPage(); drawFrame(doc); y = 18; }
+                    hintsY = y + 2;
+                    qrY = hintsY + (hints.length ? hintsHeight + 4 : 0);
+                }
+
+                if (hints.length) {
+                    doc.setDrawColor(...DORADO); doc.setFillColor(253, 248, 236); doc.setLineWidth(0.4);
+                    doc.roundedRect(20, hintsY, 170, hintsHeight, 2, 2, 'FD');
+                    doc.setFont("Helvetica", "bold"); doc.setFontSize(8.5); doc.setTextColor(...GRANATE);
+                    doc.text("PISTAS", 24, hintsY + 5.5);
+                    doc.setFont("Helvetica", "normal"); doc.setFontSize(7.5); doc.setTextColor(120, 80, 30);
+                    doc.text("Si usas una pista, marca su casilla: ese acierto valdrá 0,5 puntos en lugar de 1.", 40, hintsY + 5.5);
+                    let hy = hintsY + 11;
+                    doc.setFontSize(8.5); doc.setTextColor(...TEXTO);
+                    hints.forEach((h, i) => {
+                        doc.setDrawColor(...GRANATE); doc.setLineWidth(0.3);
+                        doc.rect(24, hy - 2.8, 3.2, 3.2);
+                        doc.text(hintLines[i], 30, hy);
+                        hy += hintLines[i].length * hintLh + 1.2;
+                    });
+                }
+
+                if (audition.youtube_url) await drawQrBlock(doc, audition.youtube_url, qrY);
+            };
+
+            const drawSolutionsSheet = (doc, audition) => {
+                drawFrame(doc);
+                drawBrand(doc, 'SOLUCIONES · solo para el profesorado');
+                drawTitleBlock(doc, audition, 34);
+
+                const words = getAuditionWords(audition);
+                doc.setFillColor(253, 248, 236); doc.setDrawColor(...DORADO); doc.setLineWidth(0.4);
+                doc.roundedRect(20, 46, 170, 54, 2, 2, 'FD');
+                words.slice(0, 10).forEach((w, i) => {
+                    const col = i < 5 ? 0 : 1;
+                    const x = col ? 110 : 26;
+                    const yy = 56 + (i % 5) * 9.5;
+                    doc.setFont("Helvetica", "bold"); doc.setFontSize(12); doc.setTextColor(...GRANATE);
+                    doc.text(`${i + 1}.`, x, yy);
+                    doc.setTextColor(15, 23, 42);
+                    doc.text(w, x + 8, yy);
+                    const ww = doc.getTextWidth(w);
+                    if (i === 2 || i === 7) {
+                        doc.setFont("Helvetica", "normal"); doc.setFontSize(7.5); doc.setTextColor(100, 116, 139);
+                        doc.text("(opción múltiple)", x + 10 + ww, yy);
+                    }
+                });
+
+                doc.setFont("Helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(71, 85, 105);
+                doc.text("Cada acierto vale 1 punto. Si el alumno ha marcado la pista de ese hueco, vale 0,5. Se aceptan las respuestas con o sin tilde.", 105, 107, { align: 'center', maxWidth: 170 });
+
+                doc.setFont("Helvetica", "bold"); doc.setFontSize(8.5); doc.setTextColor(...GRANATE);
+                doc.text("TEXTO COMPLETO", 20, 117);
+                doc.setDrawColor(...DORADO); doc.setLineWidth(0.3); doc.line(20, 119, 190, 119);
+
+                const fullText = String(audition.comment || '').replace(/\n{3,}/g, '\n\n').trim();
+                doc.setFont("Helvetica", "normal");
+                const fit = fitTextBlock(doc, fullText, 170, 282 - 124, 10.5, 7.5);
+                doc.setFontSize(fit.size); doc.setTextColor(...TEXTO);
+                let y = 124 + fit.size * PT_TO_MM;
+                fit.lines.forEach(line => {
+                    if (y > 282) { doc.addPage(); drawFrame(doc); y = 22; doc.setFont("Helvetica", "normal"); doc.setFontSize(fit.size); doc.setTextColor(...TEXTO); }
+                    doc.text(line, 20, y);
+                    y += fit.lh;
+                });
+            };
+
+            // Un solo PDF: la ficha del alumnado y, en una hoja aparte, las soluciones.
+            const downloadAuditionTemplatePDF = async (audition) => {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+                await drawStudentSheet(doc, audition);
+                doc.addPage();
+                drawSolutionsSheet(doc, audition);
+                openPdf(doc, `ficha_${safeFileName(audition.title)}.pdf`);
+            };
+
+            useEffect(() => {
+                if (!projection) return;
+                const total = tokenizeAudition(projection).filter(t => t.length > 0).length;
+                const onKey = (e) => {
+                    if (e.key === 'Escape' && !document.fullscreenElement) { setProjection(null); return; }
+                    if (!focusMode) return;
+                    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); setFocusPar(p => Math.min(total - 1, p + 1)); }
+                    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); setFocusPar(p => Math.max(0, p - 1)); }
+                };
+                document.addEventListener('keydown', onKey);
+                return () => document.removeEventListener('keydown', onKey);
+            }, [projection, focusMode]);
+
+            useEffect(() => {
+                if (!projection || !focusMode) return;
+                const el = document.getElementById(`proj-par-${focusPar}`);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, [projection, focusMode, focusPar]);
+
+            const toggleFullscreen = () => {
+                try {
+                    if (document.fullscreenElement) document.exitFullscreen();
+                    else document.documentElement.requestFullscreen();
+                } catch (e) {}
+            };
+
+            return (
+                <div className="min-h-screen pb-12">
+                    {toast && (
+                        <div className={`fixed bottom-6 right-6 z-50 px-5 py-3.5 rounded-xl shadow-2xl text-sm font-bold text-white flex items-center gap-2 ${toast.type === 'error' ? 'bg-rose-600' : toast.type === 'success' ? 'bg-emerald-600' : 'bg-indigo-600'}`}>
+                            <span>{toast.message}</span>
+                        </div>
+                    )}
+
+                    {confirmModal && (
+                        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                            <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl border border-slate-100">
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">{confirmModal.title}</h3>
+                                <p className="text-sm text-slate-600 mb-6">{confirmModal.message}</p>
+                                <div className="flex justify-end gap-2">
+                                    <button onClick={() => setConfirmModal(null)} className="px-4 py-2 rounded-xl text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200">Cancelar</button>
+                                    <button onClick={confirmModal.onConfirm} className="px-4 py-2 rounded-xl text-sm font-bold text-white bg-rose-600 hover:bg-rose-700">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {deleteAllModal && (
+                        <div className="fixed inset-0 bg-rose-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
+                            <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl border-2 border-rose-300">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-rose-600 text-2xl">⚠️</div>
+                                    <h3 className="text-xl font-black text-rose-700">{deleteAllModal.title}</h3>
+                                </div>
+                                <p className="text-sm text-slate-700 mb-4">{deleteAllModal.message}</p>
+                                <p className="text-xs font-bold text-rose-600 mb-2">Escribe BORRAR para confirmar:</p>
+                                <input
+                                    type="text"
+                                    value={deleteAllConfirmText}
+                                    onChange={e => setDeleteAllConfirmText(e.target.value)}
+                                    placeholder="BORRAR"
+                                    className="w-full px-4 py-2.5 border-2 border-rose-300 rounded-xl text-sm outline-none focus:border-rose-600 font-bold uppercase"
+                                    autoFocus
+                                />
+                                <div className="flex justify-end gap-2 mt-6">
+                                    <button onClick={() => setDeleteAllModal(null)} className="px-4 py-2 rounded-xl text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200">Cancelar</button>
+                                    <button
+                                        onClick={deleteAllModal.onConfirm}
+                                        disabled={deleteAllConfirmText.trim().toUpperCase() !== 'BORRAR'}
+                                        className={`px-4 py-2 rounded-xl text-sm font-bold text-white transition-all ${deleteAllConfirmText.trim().toUpperCase() === 'BORRAR' ? 'bg-rose-600 hover:bg-rose-700' : 'bg-rose-300 cursor-not-allowed'}`}
+                                    >Borrar todo para siempre</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {lookupModal && (
+                        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                            <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl border border-slate-100 space-y-4">
+                                <h3 className="text-lg font-bold text-slate-900">Recuperar mi resultado</h3>
+                                <p className="text-xs text-slate-500">Escribe el correo del centro con el que enviaste la tarea para ver tu nota.</p>
+                                <form onSubmit={handleStudentLookup} className="space-y-4">
+                                    <input type="email" required placeholder="tu.correo@alu.murciaeduca.es" value={lookupEmail} onChange={e => setLookupEmail(e.target.value)} className="w-full px-4 py-2.5 border rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500" />
+                                    <div className="flex justify-end gap-2">
+                                        <button type="button" onClick={() => setLookupModal(false)} className="px-4 py-2 rounded-xl text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200">Cancelar</button>
+                                        <button type="submit" className="px-4 py-2 rounded-xl text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700">Ver resultado</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    )}
+
+                    {createdTaskModal && (
+                        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
+                            <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border border-indigo-100 space-y-6 text-center">
+                                <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-3xl">🎉</div>
+                                <div><h3 className="text-2xl font-black text-slate-900">¡Tarea publicada!</h3><p className="text-sm text-slate-500 mt-1">La audición <strong>«{createdTaskModal.title}»</strong> está lista.</p><p className="text-xs text-slate-500 mt-2">En el Historial tienes el modo proyección y la ficha en PDF (con las soluciones en una hoja aparte).</p></div>
+                                <div className="bg-slate-50 border border-slate-200 p-4 rounded-2xl text-left space-y-2">
+                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Enlace para el alumnado (días de ordenador):</label>
+                                    <div className="flex gap-2">
+                                        <input type="text" readOnly value={createdTaskModal.fullUrl} className="w-full bg-white border rounded-xl px-3 py-2 text-xs font-mono text-slate-700 outline-none select-all" />
+                                        <button onClick={() => { copyToClipboard(createdTaskModal.fullUrl); showToast("¡Enlace copiado!", "success"); }} className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1 shrink-0"><Icons.Copy /> Copiar</button>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col sm:flex-row gap-2 pt-2">
+                                    <button onClick={() => { setCreatedTaskModal(null); setDashboardTab('history'); }} className="flex-1 bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-bold text-sm">Ir al historial</button>
+                                    <a href={createdTaskModal.fullUrl} target="_blank" className="flex-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-1"><Icons.External /> Vista del alumnado</a>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    <header className="bg-white sticky top-0 z-40" style={{ borderBottom: "3px solid #E8B04B" }}>
+                        <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+                            <div className="flex flex-col"><h1 className="text-xl font-extrabold text-indigo-700 tracking-tight flex items-center gap-2"><svg viewBox="0 0 96 96" className="w-7 h-7 shrink-0" aria-hidden="true"><rect width="96" height="96" rx="22" fill="#7A1F3D"/><path d="M20 40 H32 L47 27 V69 L32 56 H20 Z" fill="#E8B04B" stroke="#E8B04B" strokeWidth="3" strokeLinejoin="round"/><path d="M58 38 A13 13 0 0 1 58 58" fill="none" stroke="#E8B04B" strokeWidth="5" strokeLinecap="round"/><path d="M67 29 A24 24 0 0 1 67 67" fill="none" stroke="#E8B04B" strokeWidth="5" strokeLinecap="round"/></svg>Audiciones Comentadas <span className="font-medium hidden sm:inline" style={{ color: "#C9932F" }}>| Afina el Oído</span></h1><span className="text-[8px] text-slate-400 ml-9 -mt-0.5 tracking-wide">por Manuel Esteve (IES Infanta Elena)</span></div>
+                            <div className="flex items-center gap-2">
+                                {session && view !== 'student-test' && view !== 'results' && (
+                                    <a href={SUPABASE_DASHBOARD_URL} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-lg flex items-center gap-1.5" title="Abrir el panel de Supabase">
+                                        <Icons.Cloud /> Supabase
+                                    </a>
+                                )}
+                                <button onClick={() => setDarkMode(!darkMode)} className="text-xs font-bold p-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg" title="Modo oscuro">{darkMode ? <Icons.Sun /> : <Icons.Moon />}</button>
+                                {session && view !== 'student-test' && view !== 'results' && (
+                                    <button onClick={handleLogout} className="text-xs font-bold text-slate-500 hover:text-slate-800 flex items-center gap-1">
+                                        <Icons.LogOut /> <span className="hidden sm:inline">Salir</span>
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </header>
+
+                    <main className="max-w-6xl mx-auto px-4 mt-8">
+                        {view === 'reset-password' && (
+                            <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mt-12">
+                                <h2 className="text-2xl font-bold text-slate-900 mb-2 text-center">Nueva contraseña</h2>
+                                <p className="text-xs text-slate-500 text-center mb-6">Escribe una contraseña nueva para tu cuenta. Usa al menos 10 caracteres.</p>
+                                <form onSubmit={handleSetNewPassword} className="space-y-4">
+                                    <div><label className="block text-xs font-bold uppercase text-slate-500 mb-1">Contraseña nueva</label><input type="password" autoComplete="new-password" required minLength={10} value={recoveryPassword} onChange={e => setRecoveryPassword(e.target.value)} className="w-full px-4 py-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Al menos 10 caracteres" /></div>
+                                    <div><label className="block text-xs font-bold uppercase text-slate-500 mb-1">Repite la contraseña nueva</label><input type="password" autoComplete="new-password" required minLength={10} value={recoveryPasswordConfirm} onChange={e => setRecoveryPasswordConfirm(e.target.value)} className="w-full px-4 py-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Repite la contraseña" /></div>
+                                    <button type="submit" disabled={loading} className="w-full py-3 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 transition-all shadow-md shadow-indigo-100">{loading ? 'Guardando…' : 'Guardar contraseña'}</button>
+                                </form>
+                                {!session && <p className="mt-4 text-xs text-amber-700">No se ha cargado la sesión de recuperación. Si este aviso no desaparece, pide un correo de recuperación nuevo.</p>}
+                            </div>
+                        )}
+
+                        {view === 'auth' && !session && (
+                            <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mt-12">
+                                <h2 className="text-2xl font-bold text-slate-900 mb-2 text-center">{authMode === 'signup' ? 'Crear cuenta de profesorado' : 'Acceso del profesorado'}</h2>
+                                <p className="text-xs text-slate-500 text-center mb-6">{authMode === 'signup' ? 'Crea tu cuenta con tu correo y una contraseña de al menos 10 caracteres.' : 'Entra con el correo y la contraseña con los que te registraste.'}</p>
+                                <form onSubmit={handleTeacherAuth} className="space-y-4">
+                                    <div><label className="block text-xs font-bold uppercase text-slate-500 mb-1">Correo electrónico</label><input type="email" autoComplete="email" required placeholder="profesor@murciaeduca.es" value={authEmail} onChange={e => setAuthEmail(e.target.value)} className="w-full px-4 py-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none" /></div>
+                                    <div><label className="block text-xs font-bold uppercase text-slate-500 mb-1">Contraseña</label><input type="password" autoComplete={authMode === 'signup' ? 'new-password' : 'current-password'} required minLength={authMode === 'signup' ? 10 : 1} placeholder={authMode === 'signup' ? 'Al menos 10 caracteres' : 'Tu contraseña'} value={authPassword} onChange={e => setAuthPassword(e.target.value)} className="w-full px-4 py-2.5 border rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 outline-none" />{authMode === 'signup' && <p className="text-[11px] text-slate-400 mt-1">Puede que tengas que confirmar tu correo antes de entrar.</p>}</div>
+                                    <button type="submit" disabled={loading} className="w-full mt-4 py-3 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 transition-all shadow-md shadow-indigo-100">{loading ? 'Un momento…' : authMode === 'signup' ? 'Crear cuenta' : 'Entrar'}</button>
+                                </form>
+                                <button type="button" onClick={() => { setAuthMode(authMode === 'signup' ? 'signin' : 'signup'); setAuthPassword(''); }} className="w-full mt-3 py-2 text-sm font-semibold text-indigo-700 hover:text-indigo-900">{authMode === 'signup' ? '¿Ya tienes cuenta? Entra' : '¿Es tu primera vez? Crea una cuenta'}</button>
+                                {authMode === 'signin' && <button type="button" disabled={loading} onClick={handlePasswordRecoveryRequest} className="w-full py-2 text-sm font-semibold text-slate-500 hover:text-indigo-700 disabled:opacity-60">¿Has olvidado la contraseña? Recibir correo de recuperación</button>}
+                            </div>
+                        )}
+
+                        {view === 'dashboard' && session && (
+                            <div className="space-y-6">
+                                <div className="flex bg-slate-100 p-1.5 rounded-xl border border-slate-200/50 gap-1 text-sm max-w-sm">
+                                    <button onClick={() => setDashboardTab('create')} className={`flex-1 py-2 rounded-lg font-semibold transition-all ${dashboardTab === 'create' ? 'bg-white text-slate-900 shadow-sm font-bold' : 'text-slate-500 hover:text-slate-800'}`}>Crear tarea</button>
+                                    <button onClick={() => setDashboardTab('history')} className={`flex-1 py-2 rounded-lg font-semibold transition-all ${dashboardTab === 'history' ? 'bg-white text-slate-900 shadow-sm font-bold' : 'text-slate-500 hover:text-slate-800'}`}>Historial</button>
+                                    <button onClick={() => setDashboardTab('scores')} className={`flex-1 py-2 rounded-lg font-semibold transition-all ${dashboardTab === 'scores' ? 'bg-white text-slate-900 shadow-sm font-bold' : 'text-slate-500 hover:text-slate-800'}`}>Calificaciones</button>
+                                </div>
+
+                                {dashboardTab === 'create' && (
+                                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                                        <div className="lg:col-span-7 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
+                                            <h2 className="text-xl font-bold text-slate-900 mb-4">Datos de la audición</h2>
+                                            <div className="grid grid-cols-2 gap-4 mb-4">
+                                                <div><label className="block text-xs font-bold uppercase text-slate-500 mb-1">Título de la obra</label><input type="text" value={title} onChange={e => setTitle(e.target.value)} className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-indigo-500" placeholder="Ej.: Las cuatro estaciones" /></div>
+                                                <div><label className="block text-xs font-bold uppercase text-slate-500 mb-1">Compositor / artista</label><input type="text" value={artist} onChange={e => setArtist(e.target.value)} className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-indigo-500" placeholder="Ej.: Antonio Vivaldi" /></div>
+                                            </div>
+                                            <div className="mb-4">
+                                                <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Enlace del vídeo de YouTube</label>
+                                                <input type="url" value={youtubeUrl} onChange={e => setYoutubeUrl(e.target.value)} className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-indigo-500" placeholder="https://www.youtube.com/watch?v=..." />
+                                            </div>
+                                            <div className="mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 mt-6">
+                                                <label className="block text-xs font-bold uppercase text-slate-500">Comentario de la audición (10 palabras en MAYÚSCULAS)</label>
+                                                <div className="flex gap-2">
+                                                    <a href={GEM_URL} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 hover:shadow-lg transition-all"><Icons.Sparkles /> Generar con Gemini</a>
+                                                    <button type="button" onClick={async () => { const ok = await copyLongText(GEM_INSTRUCTIONS); showToast(ok ? "Instrucciones copiadas. Pégalas en un chat nuevo de cualquier IA y dale el enlace de YouTube." : "No se han podido copiar las instrucciones.", ok ? "success" : "error"); }} title="Para usar con otra IA si el enlace de Gemini deja de funcionar" className="bg-white border border-indigo-200 text-indigo-700 hover:bg-indigo-50 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all"><Icons.Copy /> Copiar instrucciones</button>
+                                                </div>
+                                            </div>
+                                            <textarea rows={5} value={commentText} onChange={e => setCommentText(e.target.value)} className="w-full p-4 bg-slate-50 border rounded-xl outline-none font-sans text-sm focus:border-indigo-500" placeholder="Escribe o pega aquí el comentario, con 10 palabras en MAYÚSCULAS..." />
+                                            <p className="text-[11px] text-slate-400 mt-1.5">Solo las 10 palabras clave van en mayúsculas. Los números romanos y las siglas, en minúscula («siglo xx»).</p>
+                                            {commentWarnings.length > 0 && (
+                                                <div className="mt-2 bg-amber-50 border border-amber-200 rounded-xl p-3 space-y-1">
+                                                    {commentWarnings.map((w, i) => <p key={i} className="text-xs text-amber-900">⚠️ {w}</p>)}
+                                                </div>
+                                            )}
+                                            <div className="mt-3 flex justify-between items-center text-sm font-bold">
+                                                <span className="text-slate-500 text-xs">Palabras en MAYÚSCULAS:</span>
+                                                <span className={`px-2.5 py-0.5 rounded-full text-xs font-extrabold ${uppercaseWords.length === 10 ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}`}>{uppercaseWords.length} / 10</span>
+                                            </div>
+                                            {uppercaseWords.length === 10 && (
+                                                <div className="mt-6 pt-6 border-t border-slate-200">
+                                                    <h3 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2"><Icons.Lightbulb /> Pistas (opcionales; si se usa la pista, el acierto vale 0,5 puntos)</h3>
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-60 overflow-y-auto pr-1">
+                                                        {uppercaseWords.map((word, idx) => (
+                                                            <div key={idx} className="bg-slate-50 p-2.5 rounded-xl border">
+                                                                <label className="block text-[10px] font-bold text-indigo-600 uppercase mb-1">Hueco {idx + 1}: {word}</label>
+                                                                <input type="text" placeholder={`Pista para ${word}...`} value={taskHints[idx] || ''} onChange={(e) => handleHintChange(idx, e.target.value)} className="w-full px-2.5 py-1.5 bg-white border rounded-lg text-xs outline-none focus:border-indigo-500" />
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+                                            <button onClick={handlePublishTask} disabled={loading} className={`w-full mt-6 py-3.5 rounded-xl font-bold text-white transition-all shadow-md ${uppercaseWords.length === 10 && videoId ? 'bg-slate-900 hover:bg-slate-800' : 'bg-slate-300 cursor-not-allowed'}`}>Publicar audición</button>
+                                        </div>
+                                        <div className="lg:col-span-5">
+                                            <div className="sticky top-24 bg-slate-900 rounded-2xl overflow-hidden shadow-xl aspect-video flex flex-col items-center justify-center relative">
+                                                {videoId ? (
+                                                    <><iframe className="w-full h-full" src={`https://www.youtube.com/embed/${videoId}?rel=0&enablejsapi=1`} title="Vista previa" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe><a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer" className="absolute bottom-2 right-2 bg-black/70 hover:bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded-lg backdrop-blur-sm flex items-center gap-1 z-10"><Icons.External /> Abrir en YouTube</a></>
+                                                ) : (<div className="text-center p-4"><span className="text-slate-500 font-bold text-xs block mb-1">Vista previa del vídeo</span><span className="text-slate-600 text-[11px]">Pon un enlace válido de YouTube</span></div>)}
+                                            </div>
+                                            <div className="mt-5 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-200">
+                                                <div className="mb-4">
+                                                <label className="block text-xs font-bold uppercase text-slate-500 mb-2">Tema visual</label>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                    {Object.values(MUSIC_THEMES).map(theme => (
+                                                        <button key={theme.id} type="button" onClick={() => setStyle(theme.id)} aria-pressed={style === theme.id}
+                                                            className={`text-left p-2.5 rounded-xl border-2 transition-all ${style === theme.id ? 'ring-2 ring-offset-1' : 'hover:border-slate-300'}`}
+                                                            style={{ backgroundColor: style === theme.id ? theme.colors.paper : '#FFFFFF', borderColor: style === theme.id ? theme.colors.accent : '#E2E8F0', '--tw-ring-color': theme.colors.accent }}>
+                                                            <div className="flex items-center gap-2 mb-1">
+                                                                <span className="w-9 h-9 rounded-lg flex items-center justify-center text-lg shrink-0" style={{backgroundColor:theme.colors.primary,color:theme.colors.accent}}>{theme.icon}</span>
+                                                                <span className="text-xs font-extrabold" style={{color:theme.colors.primary}}>{theme.label}</span>
+                                                                {style === theme.id && <span className="ml-auto text-[10px] font-black uppercase tracking-wide" style={{color:theme.colors.primary}}>Elegido</span>}
+                                                            </div>
+                                                            <span className="block text-[10px] leading-snug text-slate-500">{theme.genres}</span>
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                                <p className="text-[11px] text-slate-400 mt-2">El tema cambia el aspecto de la página del alumnado y del modo proyección. El panel del profesorado no cambia.</p>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {dashboardTab === 'history' && (
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                                            <h2 className="text-xl font-bold text-slate-900">Tus audiciones publicadas</h2>
+                                            <div className="flex gap-2 w-full sm:w-auto">
+                                                <div className="relative flex-1 sm:w-72"><span className="absolute left-3 top-2.5 text-slate-400"><Icons.Search /></span><input type="text" placeholder="Buscar por título, artista o enlace..." value={searchTermHistory} onChange={e => setSearchTermHistory(e.target.value)} className="w-full pl-9 pr-4 py-2 border rounded-xl text-sm bg-slate-50 outline-none focus:ring-1 focus:ring-indigo-500" /></div>
+                                                
+                                                {/* Backup Button */}
+                                                <button onClick={() => {
+                                                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(auditionsList));
+                                                    const downloadAnchorNode = document.createElement('a');
+                                                    downloadAnchorNode.setAttribute("href", dataStr);
+                                                    downloadAnchorNode.setAttribute("download", "copia_audiciones_castellano.json");
+                                                    document.body.appendChild(downloadAnchorNode);
+                                                    downloadAnchorNode.click();
+                                                    downloadAnchorNode.remove();
+                                                    showToast("Copia de seguridad descargada.", "success");
+                                                }} className="px-3 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 rounded-xl text-xs font-bold flex items-center gap-1 whitespace-nowrap">
+                                                    <Icons.Download /> <span className="hidden sm:inline">Copia de seguridad</span>
+                                                </button>
+
+                                                {auditionsList.length > 0 && (
+                                                    <button onClick={handleDeleteAllTasks} className="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center gap-1 whitespace-nowrap" title="Borrar TODAS las audiciones">
+                                                        <Icons.Trash /> <span className="hidden sm:inline">Borrar todo</span>
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </div>
+                                        {filteredAuditions.length === 0 ? ( <p className="text-slate-400 text-center py-10">{auditionsList.length === 0 ? "Todavía no has publicado ninguna audición. Créala en la pestaña «Crear tarea»." : "Ninguna audición coincide con la búsqueda."}</p> ) : (
+                                            <div className="overflow-x-auto">
+                                                <table className="w-full text-left text-sm border-collapse">
+                                                    <thead>
+                                                        <tr className="border-b text-slate-400 text-xs uppercase bg-slate-50/50">
+                                                            <th className="py-3.5 px-4">Obra</th><th className="py-3.5 px-4">Artista</th><th className="py-3.5 px-4 text-center">Para clase</th><th className="py-3.5 px-4 text-right">Enlace y otras acciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {filteredAuditions.map(aud => (
+                                                            <tr key={aud.id || aud.share_link} className="border-b border-slate-100 hover:bg-slate-50/30 transition-colors">
+                                                                <td className="py-4 px-4 font-bold text-slate-950">{aud.title}</td><td className="py-4 px-4 text-slate-500">{aud.artist}</td>
+                                                                <td className="py-4 px-4">
+                                                                    <div className="flex flex-wrap justify-center gap-1.5">
+                                                                        <button onClick={() => { setProjectionScale(1); setProjectionVideoSmall(false); setRevealedGaps({}); setFocusMode(false); setFocusPar(0); setProjection(aud); }} title="Abre el vídeo y el texto con letra grande para la pizarra digital" className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 transition-all whitespace-nowrap"><Icons.Monitor /> Proyectar</button>
+                                                                        <button onClick={() => downloadAuditionTemplatePDF(aud)} title="PDF de dos hojas: la ficha para el alumnado y, aparte, las soluciones" className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 transition-all whitespace-nowrap"><Icons.Printer /> Ficha PDF</button>
+                                                                    </div>
+                                                                </td>
+                                                                <td className="py-4 px-4 text-right whitespace-nowrap space-x-1">
+                                                                    <button onClick={() => handleCopyLink(aud.share_link || aud.id, aud.id)} title="Copiar el enlace para los días de sala de ordenadores" className="inline-flex align-middle bg-white border hover:bg-slate-50 text-slate-600 font-bold px-2.5 py-1.5 rounded-lg text-xs items-center gap-1 transition-all">{copiedId === aud.id ? <Icons.Check /> : <Icons.Link />} {copiedId === aud.id ? "¡Copiado!" : "Enlace"}</button>
+                                                                    <a href={buildStudentUrl(aud.share_link || aud.id)} target="_blank" title="Ver como el alumnado" className="inline-block align-middle p-2 hover:bg-slate-100 rounded-lg text-slate-500 transition-colors"><Icons.External /></a>
+                                                                    <button onClick={() => handleDeleteAudition(aud.id, aud.share_link)} title="Eliminar audición" className="align-middle p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-colors"><Icons.Trash /></button>
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {dashboardTab === 'scores' && (
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                                        {stats && (
+                                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                                                <div className="bg-gradient-to-br from-indigo-500 to-purple-500 text-white p-4 rounded-2xl shadow">
+                                                    <p className="text-[10px] font-bold uppercase tracking-wider opacity-80">Nota media</p>
+                                                    <p className="text-3xl font-black mt-1">{stats.avg} <span className="text-sm opacity-70">/ 10</span></p>
+                                                </div>
+                                                <div className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white p-4 rounded-2xl shadow">
+                                                    <p className="text-[10px] font-bold uppercase tracking-wider opacity-80">Entregas</p>
+                                                    <p className="text-3xl font-black mt-1">{stats.count}</p>
+                                                </div>
+                                                <div className="bg-gradient-to-br from-amber-500 to-orange-500 text-white p-4 rounded-2xl shadow">
+                                                    <p className="text-[10px] font-bold uppercase tracking-wider opacity-80">Mejor nota</p>
+                                                    <p className="text-base font-black mt-1 truncate">{stats.bestName}</p>
+                                                    <p className="text-xs opacity-90">{stats.bestScore} / 10</p>
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                                            <h2 className="text-xl font-bold text-slate-900">Calificaciones del alumnado</h2>
+                                            <div className="flex gap-2 w-full sm:w-auto">
+                                                <div className="relative flex-1 sm:w-72"><span className="absolute left-3 top-2.5 text-slate-400"><Icons.Search /></span><input type="text" placeholder="Buscar nombre, grupo (2A, 3B…), correo o nota..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="w-full pl-9 pr-4 py-2 border rounded-xl text-sm bg-slate-50 outline-none focus:ring-1 focus:ring-indigo-500" /></div>
+                                                {scoresList.length > 0 && (
+                                                    <button onClick={handleDeleteAllScores} className="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center gap-1 whitespace-nowrap" title="Borrar TODOS los resultados">
+                                                        <Icons.Trash /> <span className="hidden sm:inline">Borrar todo</span>
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </div>
+                                        {filteredScores.length === 0 ? ( <p className="text-slate-400 text-center py-10">{scoresList.length === 0 ? "Todavía no hay entregas. Aparecerán aquí cuando el alumnado haga la tarea en el ordenador." : "Ningún resultado coincide con la búsqueda."}</p> ) : (
+                                            <div className="overflow-x-auto">
+                                                <table className="w-full text-left text-sm border-collapse">
+                                                    <thead>
+                                                        <tr className="border-b text-slate-400 text-xs uppercase bg-slate-50/50"><th className="py-3.5 px-4">Alumno/a</th><th className="py-3.5 px-4">Grupo</th><th className="py-3.5 px-4">Audición</th><th className="py-3.5 px-4 text-center">Nota</th><th className="py-3.5 px-4 text-right">Acciones</th></tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {filteredScores.map(s => (
+                                                            <tr key={s.id} className="border-b border-slate-100 hover:bg-slate-50/30 transition-colors">
+                                                                <td className="py-3.5 px-4"><p className="font-bold text-slate-950">{s.student_name}</p><p className="text-xs text-slate-400">{s.student_email || 'Sin correo'}</p></td>
+                                                                <td className="py-3.5 px-4 font-mono text-xs">{s.student_class}</td><td className="py-3.5 px-4 text-slate-600 font-medium">{s.auditions?.title}</td>
+                                                                <td className="py-3.5 px-4 text-center"><span className={`inline-block font-extrabold text-xs px-2.5 py-1 rounded-full ${Number(s.score) >= 8 ? 'bg-emerald-50 text-emerald-700' : Number(s.score) >= 5 ? 'bg-amber-50 text-amber-700' : 'bg-rose-50 text-rose-700'}`}>{formatScore(s.score)}/10</span></td>
+                                                                <td className="py-3.5 px-4 text-right space-x-1">
+                                                                    <button onClick={() => setSelectedScoreDetails(s)} title="Ver detalle" className="p-2 hover:bg-slate-100 rounded-lg text-slate-500 transition-colors"><Icons.Eye /></button>
+                                                                    <button onClick={() => handleDeleteScore(s.id)} title="Eliminar" className="p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-colors"><Icons.Trash /></button>
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {selectedScoreDetails && (
+                            <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                                <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl space-y-4">
+                                    <div className="flex justify-between items-start">
+                                        <div><h3 className="text-lg font-bold text-slate-900">{selectedScoreDetails.student_name}</h3><p className="text-xs text-slate-400">{selectedScoreDetails.student_class} · {selectedScoreDetails.student_email || 'Sin correo'}</p></div>
+                                        <span className="text-3xl font-black text-indigo-600">{formatScore(selectedScoreDetails.score)}/10</span>
+                                    </div>
+                                    <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+                                        {selectedScoreDetails.details?.words?.map((w, i) => (
+                                            <div key={i} className={`flex justify-between p-2.5 rounded-xl border text-xs font-semibold ${w.correct ? 'bg-emerald-50/50 border-emerald-100 text-emerald-800' : 'bg-rose-50/50 border-rose-100 text-rose-800'}`}>
+                                                <span>Hueco {i + 1}: {w.correct ? (w.usedHint ? "Correcta con pista (0,5)" : "Correcta (1)") : "Incorrecta"}</span>
+                                                <span className="font-mono">{w.correct ? w.original : (w.answer || '(vacío)')}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="flex justify-end pt-4"><button onClick={() => setSelectedScoreDetails(null)} className="bg-slate-100 hover:bg-slate-200 text-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">Cerrar</button></div>
+                                </div>
+                            </div>
+                        )}
+
+                        {view === 'student-test' && !activeTask && (
+                            <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-sm border border-rose-200 mt-12 text-center space-y-4">
+                                <div className="text-5xl">🔍</div>
+                                <h2 className="text-xl font-bold text-slate-900">No se encuentra la tarea</h2>
+                                <p className="text-sm text-slate-500">No hemos encontrado ninguna audición con este enlace. Pide a tu profesor o profesora un enlace nuevo.</p>
+                                <button onClick={() => { window.location.href = window.location.origin + window.location.pathname; }} className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm">Ir al inicio</button>
+                            </div>
+                        )}
+
+                        {view === 'student-test' && activeTask && !examSubmitted && (
+                            <div className="max-w-3xl mx-auto space-y-6">
+                                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                    <div><h2 className="text-lg font-bold text-slate-900">Tus datos</h2><p className="text-xs text-slate-500">Escríbelos antes de empezar la audición.</p></div>
+                                    <button onClick={() => setLookupModal(true)} className="bg-slate-100 hover:bg-slate-200 text-indigo-700 text-xs font-bold px-3 py-2 rounded-xl transition-all flex items-center gap-1.5"><Icons.Eye /> ¿Ya la has hecho?</button>
+                                </div>
+                                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                                    <div><label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Nombre y apellidos</label><input type="text" placeholder="Ej.: Lucía Martínez López" value={studentName} onChange={e => setStudentName(e.target.value)} className="w-full px-3 py-2 bg-slate-50 border rounded-lg text-sm outline-none focus:border-indigo-500" /></div>
+                                    <div>
+                                        <label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Curso y grupo</label>
+                                        <div className="flex gap-2">
+                                            <select value={studentLevel} onChange={e => setStudentLevel(e.target.value)} aria-label="Curso" className="flex-1 min-w-0 px-3 py-2 bg-slate-50 border rounded-lg text-sm outline-none focus:border-indigo-500 font-medium">
+                                                {standardStudentLevels.map(level => <option key={level} value={level}>{level}</option>)}
+                                                <option value="__custom__">Otro curso…</option>
+                                            </select>
+                                            <input type="text" value={studentLetter} onChange={e => setStudentLetter(e.target.value.replace(/[^a-zA-ZñÑ]/g, '').toUpperCase().slice(0, 2))} placeholder="Letra" aria-label="Letra del grupo" required className="w-16 px-2 py-2 bg-slate-50 border rounded-lg text-sm text-center font-bold uppercase outline-none focus:border-indigo-500" />
+                                        </div>
+                                        {studentLevel === '__custom__' && <input type="text" value={studentCustomLevel} onChange={e => setStudentCustomLevel(e.target.value)} placeholder="Ej.: 4º ESO, 1º Bachillerato" className="w-full mt-2 px-3 py-2 bg-slate-50 border rounded-lg text-sm outline-none focus:border-indigo-500" required aria-label="Otro curso" />}
+                                        {!studentLetter.trim() && <p className="text-[10px] text-slate-400 mt-1">Escribe la letra de tu grupo (A, B, C…).</p>}
+                                    </div>
+                                    <div><label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Correo del centro</label><input type="email" placeholder="@alu.murciaeduca.es" value={studentEmail} onChange={e => setStudentEmail(e.target.value)} onBlur={async () => { const already = await checkIfAlreadySubmitted(studentEmail); setAlreadySubmittedWarning(already); }} className="w-full px-3 py-2 bg-slate-50 border rounded-lg text-sm outline-none focus:border-indigo-500" /></div>
+                                </div>
+                                {alreadySubmittedWarning && (
+                                    <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-sm text-amber-900">
+                                        <strong>⚠️ Atención:</strong> ya has enviado esta tarea con este correo. Puedes ver tu nota con el botón «¿Ya la has hecho?».
+                                    </div>
+                                )}
+                                <div className="p-6 md:p-8 rounded-2xl shadow-md border" style={{backgroundColor:activeMusicTheme.colors.paper,borderColor:activeMusicTheme.colors.soft,fontFamily:activeMusicTheme.font}}>
+                                    <div className="mb-6 pb-6 border-b flex flex-col md:flex-row gap-6 items-center" style={{borderColor:activeMusicTheme.colors.soft}}>
+                                        <div className="flex-1"><div className="text-[10px] font-extrabold uppercase tracking-[0.18em] mb-2" style={{color:activeMusicTheme.colors.accent}}>{activeMusicTheme.icon} {activeMusicTheme.label}</div><h2 className="text-2xl font-extrabold" style={{color:activeMusicTheme.colors.primary}}>{activeTask.title}</h2><p className="font-medium" style={{color:activeMusicTheme.colors.primary,opacity:0.8}}>{activeTask.artist}</p></div>
+                                        <div className="w-full md:w-80 shrink-0 rounded-xl overflow-hidden border bg-slate-900 aspect-video relative flex flex-col items-center justify-center">
+                                            {(() => {
+                                                const studentVideoId = extractYouTubeId(activeTask.youtube_url);
+                                                if (studentVideoId) return (<><iframe className="w-full h-full" src={`https://www.youtube-nocookie.com/embed/${studentVideoId}?rel=0`} title="Vídeo de la audición" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe><a href={`https://www.youtube.com/watch?v=${studentVideoId}`} target="_blank" rel="noopener noreferrer" className="absolute bottom-1.5 right-1.5 bg-black/70 hover:bg-black text-white text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-sm flex items-center gap-1 z-10"><Icons.External /> YouTube</a></>);
+                                                return (<div className="w-full h-full flex flex-col items-center justify-center text-xs text-slate-500 font-bold p-2 text-center"><span>Vídeo no disponible</span></div>);
+                                            })()}
+                                        </div>
+                                    </div>
+                                    
+                                    {/* ZONA PROTEGIDA ANTI-COPIA */}
+                                    <div className="space-y-6 anti-copy-zone relative">
+                                        <div className="absolute inset-0 z-0" title="Texto protegido"></div>
+                                        
+                                        {parsedParagraphs.map((paragraphTokens, pIndex) => {
+                                            if (paragraphTokens.length === 0) return null;
+                                            const paragraphSpeechText = paragraphTokens.map(t => t.type === 'gap' ? ' hueco ' : t.content).join('');
+                                            return (
+                                                <div key={pIndex} className="relative group bg-slate-50 p-5 rounded-xl border pr-12 z-10">
+                                                    <button onClick={() => toggleSpeech(paragraphSpeechText, pIndex)} title="Escuchar en voz alta" className={`absolute top-4 right-4 p-2 rounded-full shadow-sm transition-all ${speakingIndex === pIndex ? 'bg-indigo-600 text-white animate-pulse' : 'bg-white text-indigo-600 border hover:bg-indigo-50'}`}>
+                                                        {speakingIndex === pIndex ? <Icons.Stop /> : <Icons.Speaker />}
+                                                    </button>
+                                                    <p className="text-slate-800 leading-loose text-[15px]">
+                                                        {paragraphTokens.map((token, tIndex) => {
+                                                            if (token.type === 'text') return <span key={tIndex}>{token.content}</span>;
+                                                            const gapIdx = token.gapIndex;
+                                                            const hintText = activeTask.hints && activeTask.hints[gapIdx];
+                                                            // Use only the safe clue metadata returned by the public Supabase RPC.
+                                                            // The visible token may intentionally be masked (e.g. XXXXXXX).
+                                                            const safeClues = Array.isArray(activeTask.gap_clues) ? activeTask.gap_clues : [];
+                                                            let clue = safeClues[gapIdx];
+                                                            if (!clue || !Number.isInteger(Number(clue.len)) || Number(clue.len) < 1) {
+                                                                const maskedToken = String(token.word || '').replace(/[^A-ZÁÉÍÓÚÑ]/gi, '').toUpperCase();
+                                                                clue = { len: maskedToken.length || 5, first: '', last2: '' };
+                                                            }
+                                                            const len = Number(clue.len);
+                                                            if ([2, 7].includes(gapIdx)) {
+                                                                const options = mcOptions[gapIdx] || [];
+                                                                return (
+                                                                    <span key={tIndex} className="inline-block mx-1 align-bottom">
+                                                                        <span className="relative inline-flex flex-col items-center">
+                                                                            <select value={studentAnswers[gapIdx] || ''} onChange={e => handleStudentAnswerChange(gapIdx, e.target.value)} className="px-2 py-1 text-center border-b-2 border-indigo-500 shadow-md font-bold text-indigo-800 uppercase outline-none text-sm bg-white rounded-t cursor-pointer transition-shadow focus:shadow-lg" style={{width: `${Math.max(12, ...options.map(opt => String(opt || '').length * 1.35 + 4))}ch`, maxWidth: 'min(88vw, 42ch)', boxSizing: 'border-box', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 600, letterSpacing: '0.01em'}}>
+                                                                                <option value="" disabled>Elige...</option>
+                                                                                {options.map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
+                                                                            </select>
+                                                                            {hintText && (<button onClick={() => setUsedHints({...usedHints, [gapIdx]: true})} className="mt-1 text-[10px] bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-0.5 font-bold rounded-md whitespace-nowrap flex items-center gap-1 shadow-sm"><Icons.Lightbulb />{usedHints[gapIdx] ? `Pista: ${hintText}` : "Pista (−0,5)"}</button>)}
+                                                                        </span>
+                                                                    </span>
+                                                                );
+                                                            } else {
+                                                                // Render separated character positions so the clue remains legible.
+                                                                // The answer itself remains protected; only safeClues supplies visible letters.
+                                                                let clueDisplay = `Hueco ${gapIdx + 1}`;
+                                                                if ([0, 4, 6, 8].includes(gapIdx)) {
+                                                                    clueDisplay = [clue.first || '', ...Array(Math.max(0, len - 1)).fill('_')].join(' ');
+                                                                } else if ([1, 3, 5, 9].includes(gapIdx)) {
+                                                                    clueDisplay = [...Array(Math.max(0, len - 2)).fill('_'), ...(String(clue.last2 || '').split(''))].join(' ');
+                                                                }
+                                                                const answerLength = String(studentAnswers[gapIdx] || '').length;
+                                                                // Generous width: approx. two character units per target letter + side padding.
+                                                                const fieldWidthCh = Math.max(8, len * 2 + 2, answerLength * 1.8 + 2, clueDisplay.length * 0.9 + 2);
+                                                                return (
+                                                                    <span key={tIndex} className="inline-block mx-1 align-bottom max-w-full">
+                                                                        <span className="relative inline-flex max-w-full flex-col items-center align-bottom">
+                                                                            <input type="text" aria-label={`Respuesta del hueco ${gapIdx + 1}`} placeholder={clueDisplay} value={studentAnswers[gapIdx] || ''} onChange={e => handleStudentAnswerChange(gapIdx, e.target.value)} size={Math.max(8, len * 2, answerLength * 2)} className="px-3 py-1.5 text-center border-b-2 border-indigo-500 shadow-md font-semibold text-indigo-800 uppercase outline-none text-sm bg-white rounded-t placeholder-slate-500 transition-shadow focus:shadow-lg" style={{ width: `${fieldWidthCh}ch`, maxWidth: 'min(88vw, 42ch)', boxSizing: 'border-box', letterSpacing: '0.04em', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 600 }} />
+                                                                            {hintText && (<button onClick={() => setUsedHints({...usedHints, [gapIdx]: true})} className="mt-1 text-[10px] bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-0.5 font-semibold rounded-md whitespace-nowrap flex items-center gap-1 shadow-sm"><Icons.Lightbulb />{usedHints[gapIdx] ? `Pista: ${hintText}` : "Pista (−0,5)"}</button>)}
+                                                                        </span>
+                                                                    </span>
+                                                                );
+                                                            }
+                                                        })}
+                                                    </p>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                    <button onClick={handleEvaluation} disabled={!studentName || !studentEmail || !groupComplete || submitting} className={`w-full mt-10 font-bold py-4 rounded-xl shadow-md text-base transition-all ${(studentName && studentEmail && groupComplete && !submitting) ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'bg-slate-300 text-slate-500 cursor-not-allowed'}`}>{submitting ? 'Enviando...' : 'Enviar respuestas'}</button>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* AVISO DE ABANDONO DE PESTAÑA */}
+                        {showAwayWarning && (
+                            <div className="fixed inset-0 bg-rose-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+                                <div className="bg-white rounded-2xl p-8 max-w-lg w-full shadow-2xl border-4 border-rose-500 text-center space-y-4">
+                                    <div className="text-5xl">⚠️</div>
+                                    <h3 className="text-2xl font-black text-rose-700">¡Atención!</h3>
+                                    <p className="text-slate-700 font-medium">Hemos detectado que has salido de la tarea. Recuerda que esto es para tu propio aprendizaje.</p>
+                                    <p className="text-slate-600 text-sm">Puedes repasar los apuntes del libro o consultar un diccionario de música para buscar el vocabulario.</p>
+                                    <p className="text-rose-700 font-bold bg-rose-50 p-3 rounded-xl text-sm">Pero no uses inteligencia artificial para buscar las respuestas: no te ayudará a aprender y solo perjudicará tu progreso.</p>
+                                    <button onClick={() => setShowAwayWarning(false)} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl text-sm mt-4">Volver a la tarea</button>
+                                </div>
+                            </div>
+                        )}
+
+                        {view === 'results' && finalScoreRecord && (() => {
+                            const theme = getMusicTheme(finalScoreRecord.taskDetails?.style || finalScoreRecord.auditions?.style || 'classical');
+                            const feedback = getFeedback(finalScoreRecord.score);
+                            const pieceTitle = finalScoreRecord.taskDetails?.title || finalScoreRecord.auditions?.title || '';
+                            const pieceArtist = finalScoreRecord.taskDetails?.artist || finalScoreRecord.auditions?.artist || '';
+                            const dateStr = new Date(finalScoreRecord.created_at || Date.now()).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+                            const words = finalScoreRecord.details?.words || [];
+                            const hits = words.filter(w => w.correct).length;
+                            return (
+                                <div className="max-w-2xl mx-auto p-5 md:p-7 rounded-3xl shadow-xl border-2 space-y-4" style={{ backgroundColor: theme.colors.paper, borderColor: theme.colors.accent }}>
+                                    <div className="flex items-stretch gap-4">
+                                        <div className="flex-1 min-w-0 text-left">
+                                            <p className="text-xs font-bold" style={{ color: theme.colors.accent }}>{theme.icon} Audición comentada, {dateStr}</p>
+                                            <h2 className="text-xl md:text-2xl font-bold leading-tight mt-1" style={{ color: theme.colors.primary, fontFamily: theme.font }}>{pieceTitle}</h2>
+                                            <p className="text-sm" style={{ color: theme.colors.primary, opacity: 0.8 }}>{pieceArtist}</p>
+                                            <p className="mt-3 text-base font-bold text-slate-900">{finalScoreRecord.student_name}</p>
+                                            <p className="text-sm text-slate-600">{finalScoreRecord.student_class}</p>
+                                        </div>
+                                        <div className="shrink-0 rounded-2xl px-5 py-3 flex flex-col items-center justify-center text-center" style={{ backgroundColor: theme.colors.primary }}>
+                                            <span className="text-[11px] font-bold text-white/70">Nota</span>
+                                            <span className="text-5xl font-black tracking-tight text-white leading-none my-1">{formatScore(finalScoreRecord.score)}</span>
+                                            <span className="text-sm text-white/70">sobre 10</span>
+                                        </div>
+                                    </div>
+                                    <div className="border p-4 rounded-2xl text-left" style={{ backgroundColor: theme.colors.soft, borderColor: theme.colors.accent }}>
+                                        <h4 className="text-base font-bold mb-1" style={{ color: theme.colors.primary, fontFamily: theme.font }}>{feedback.title}</h4>
+                                        <p className="text-slate-700 text-sm leading-relaxed">{feedback.text}</p>
+                                    </div>
+                                    <div className="text-left p-4 rounded-2xl border space-y-2" style={{ backgroundColor: theme.colors.soft, borderColor: theme.colors.accent }}>
+                                        <div className="flex justify-between items-baseline gap-2">
+                                            <h4 className="font-bold text-slate-800 text-sm">Tus respuestas</h4>
+                                            <span className="text-xs font-bold text-slate-600">{hits} de {words.length} correctas</span>
+                                        </div>
+                                        <p className="text-[11px] text-slate-500">En verde, las correctas. En rojo, las que tienes que repasar. No se muestran las soluciones.</p>
+                                        <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+                                            {words.map((item, idx) => (
+                                                <div key={idx} className={`px-2 py-1.5 rounded-lg border text-xs font-semibold truncate ${item.correct ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-rose-50 border-rose-200 text-rose-800'}`}>
+                                                    <span className="opacity-60 mr-1">{idx + 1}.</span>{String(item.answer || '').trim() ? String(item.answer).toUpperCase() : '(sin respuesta)'}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="p-4 rounded-2xl text-left shadow-md border-2 flex flex-col sm:flex-row sm:items-center gap-3" style={{ backgroundColor: theme.colors.primary, borderColor: theme.colors.accent, color: '#FFFFFF' }}>
+                                        <div className="flex-1">
+                                            <h4 className="font-extrabold text-sm flex items-center gap-1.5 text-white"><Icons.Camera /> Entrega tu resultado</h4>
+                                            <p className="text-white/90 text-xs leading-relaxed mt-1">Haz una captura de esta pantalla (tienen que verse tu nombre y tu nota) y súbela a Google Classroom.</p>
+                                        </div>
+                                        <a href="https://classroom.google.com" target="_blank" rel="noopener noreferrer" className="shrink-0 bg-white font-bold px-4 py-2.5 rounded-xl text-sm flex items-center justify-center gap-2 text-slate-800 hover:bg-slate-50"><Icons.External /> Abrir Classroom</a>
+                                    </div>
+                                    <div className="pt-1 flex justify-end text-xs text-slate-400">
+                                        <button onClick={() => { setExamSubmitted(false); setView('student-test'); }} className="hover:text-slate-600">Volver a la tarea</button>
+                                    </div>
+                                </div>
+                            );
+                        })()}
+
+                        {projection && (() => {
+                            const theme = getMusicTheme(projection.style || 'classical');
+                            const vid = extractYouTubeId(projection.youtube_url);
+                            const paragraphs = tokenizeAudition(projection).filter(t => t.length > 0);
+                            const gapCount = paragraphs.reduce((acc, t) => acc + t.filter(x => x.type === 'gap').length, 0);
+                            const revealedCount = Object.values(revealedGaps).filter(Boolean).length;
+                            const revealNext = () => {
+                                for (let i = 0; i < gapCount; i++) if (!revealedGaps[i]) { setRevealedGaps(prev => ({ ...prev, [i]: true })); return; }
+                            };
+                            const btn = "px-3 py-1.5 rounded-lg text-sm font-bold bg-white/15 hover:bg-white/25 text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed";
+                            const btnOn = "px-3 py-1.5 rounded-lg text-sm font-bold bg-white text-slate-900 transition-colors";
+                            return (
+                                <div className="fixed inset-0 z-[60] overflow-y-auto" style={{ backgroundColor: theme.colors.paper }}>
+                                    <div className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-3 px-5 py-3 border-b-2" style={{ backgroundColor: theme.colors.primary, borderColor: theme.colors.accent }}>
+                                        <div className="min-w-0">
+                                            <p className="text-white text-lg font-bold truncate" style={{ fontFamily: theme.font }}>{projection.title}</p>
+                                            <p className="text-white/70 text-sm truncate">{projection.artist}</p>
+                                        </div>
+                                        <div className="flex flex-wrap items-center gap-2">
+                                            <button onClick={() => setProjectionScale(v => Math.max(0.7, +(v - 0.1).toFixed(2)))} className={btn} title="Letra más pequeña" aria-label="Letra más pequeña">A−</button>
+                                            <button onClick={() => setProjectionScale(v => Math.min(2, +(v + 0.1).toFixed(2)))} className={btn} title="Letra más grande" aria-label="Letra más grande">A+</button>
+                                            {vid && <button onClick={() => setProjectionVideoSmall(v => !v)} className={btn}>{projectionVideoSmall ? 'Vídeo grande' : 'Vídeo pequeño'}</button>}
+                                            <button onClick={() => { setFocusMode(v => !v); setFocusPar(0); }} className={focusMode ? btnOn : btn} title="Ilumina un párrafo; avanza con las flechas del teclado o haciendo clic en otro párrafo">Párrafo a párrafo</button>
+                                            <button onClick={revealNext} disabled={revealedCount >= gapCount} className={btn} title="Muestra la solución del siguiente hueco. También puedes hacer clic en cada hueco.">Siguiente solución</button>
+                                            {revealedCount > 0 && <button onClick={() => setRevealedGaps({})} className={btn}>Ocultar soluciones</button>}
+                                            <button onClick={toggleFullscreen} className={btn}>Pantalla completa</button>
+                                            <button onClick={() => { try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {} setProjection(null); }} className="px-3 py-1.5 rounded-lg text-sm font-bold bg-white text-slate-900 hover:bg-slate-100">Cerrar</button>
+                                        </div>
+                                    </div>
+                                    <div className="max-w-6xl mx-auto px-6 py-6">
+                                        {vid && (
+                                            <div className={projectionVideoSmall ? "float-right ml-6 mb-4 w-72 md:w-96" : "mx-auto max-w-4xl mb-8"}>
+                                                <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                                                    <iframe className="w-full h-full" src={`https://www.youtube-nocookie.com/embed/${vid}?rel=0`} title="Vídeo de la audición" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {focusMode && <p className="text-sm font-bold mb-3 opacity-70" style={{ color: theme.colors.primary }}>Párrafo {focusPar + 1} de {paragraphs.length}. Usa las flechas del teclado para avanzar o retroceder.</p>}
+                                        <div className="space-y-6" style={{ fontSize: `${(1.6 * projectionScale).toFixed(2)}rem`, lineHeight: 1.75, color: theme.colors.primary, fontFamily: theme.font }}>
+                                            {paragraphs.map((tokens, p) => {
+                                                const isFocused = !focusMode || p === focusPar;
+                                                return (
+                                                    <p key={p} id={`proj-par-${p}`} onClick={() => { if (focusMode) setFocusPar(p); }}
+                                                        className={`transition-opacity duration-300 rounded-xl ${focusMode ? 'cursor-pointer px-4 py-2' : ''}`}
+                                                        style={{ opacity: isFocused ? 1 : 0.22, backgroundColor: focusMode && isFocused ? theme.colors.soft : 'transparent' }}>
+                                                        {tokens.map((t, i) => {
+                                                            if (t.type === 'text') return <span key={i}>{t.content}</span>;
+                                                            const shown = !!revealedGaps[t.index];
+                                                            return (
+                                                                <span key={i} role="button" tabIndex={0} title={shown ? 'Clic para ocultar la solución' : 'Clic para ver la solución'}
+                                                                    onClick={(e) => { e.stopPropagation(); setRevealedGaps(prev => ({ ...prev, [t.index]: !prev[t.index] })); }}
+                                                                    onKeyDown={(e) => { if (e.key === 'Enter') setRevealedGaps(prev => ({ ...prev, [t.index]: !prev[t.index] })); }}
+                                                                    className="proj-gap cursor-pointer rounded-t" style={{ borderColor: shown ? '#15803d' : theme.colors.accent, backgroundColor: shown ? '#dcfce7' : 'transparent', color: shown ? '#15803d' : undefined }}>
+                                                                    <span className="proj-num" style={{ color: shown ? '#15803d' : theme.colors.accent }}>{t.index + 1}</span>
+                                                                    <span>{shown ? t.word : (t.clue.type === 'options' ? `[ ${t.clue.options.join(' / ')} ]` : t.clue.parts.join(' '))}</span>
+                                                                </span>
+                                                            );
+                                                        })}
+                                                    </p>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })()}
+                    </main>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
